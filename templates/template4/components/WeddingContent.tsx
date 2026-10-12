@@ -120,7 +120,7 @@ export function WeddingContent({ wedding }: Props) {
 />
 <Footer
   coupleNames={`${wedding.couple.partnerOne} & ${wedding.couple.partnerTwo}`}
-  weddingDate={wedding.weddingDate}
+  weddingDate={wedding.saveTheDate.dateLabel}
 />
     </main>
   );
