@@ -1,6 +1,12 @@
 import type { Template4Config } from "./schema";
 
-export const template4Defaults = {
+/** Shared baseline values for template4 wedding configs (each section must be complete). */
+export type Template4Defaults = Pick<
+  Template4Config,
+  "couple" | "saveTheDate" | "theme" | "motion"
+>;
+
+export const template4Defaults: Template4Defaults = {
   couple: {
     partnerOne: "Partner One",
     partnerTwo: "Partner Two",
@@ -29,4 +35,4 @@ export const template4Defaults = {
     transitionDurationMs: 900,
     enableAmbientMotion: true,
   },
-} satisfies Partial<Template4Config>;
+};
