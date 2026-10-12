@@ -54,6 +54,22 @@ templates/
     defaults.ts
 ```
 
+## Deploy on Cloudflare
+
+This app is a **static** Next.js export (`output: "export"`). Do not use the Cloudflare “Next.js (OpenNext)” Workers preset with Next 16.4 — it crashes with `Unexpected loadManifest(/.next/server/preview-props.json)`.
+
+**Workers (static assets, matches `wrangler.toml`):**
+
+1. Build command: `npm run build`
+2. Deploy command: `npx wrangler deploy`
+3. Output is the `out/` folder (served via `[assets]` in `wrangler.toml`).
+
+**Cloudflare Pages (alternative):**
+
+1. Framework preset: None (or static)
+2. Build command: `npm run build`
+3. Build output directory: `out`
+
 ## Later migration to `wyvernstack-events`
 
 Do not copy this standalone app's `app/`, `package.json`, `next.config.ts`, or global layout into the monorepo as-is.

@@ -1,0 +1,7 @@
+name = "hindu-wedding-template"
+compatibility_date = "2025-10-01"
+
+# Serve the Next.js static export (run `npm run build` first).
+[assets]
+directory = "./out"
+not_found_handling = "single-page-application"
