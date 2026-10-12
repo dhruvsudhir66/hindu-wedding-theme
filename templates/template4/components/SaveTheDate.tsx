@@ -152,7 +152,7 @@ export function SaveTheDate({ wedding, onOpen }: Props) {
 
           <Image
             className={styles.coupleImage}
-            src="/weddings/template4/indian-wedding-couple.png"
+            src="/weddings/template4/images/indian-wedding-couple.png"
             alt="Illustration of an Indian wedding couple in traditional ivory and rose-pink attire"
             width={1086}
             height={1448}
