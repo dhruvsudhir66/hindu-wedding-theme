@@ -1,0 +1,6676 @@
+
+/* =========================================================
+   TEMPLATE 4 — HINDU WEDDING INVITATION
+   Soft editorial composition, ivory, burgundy and antique gold
+   ========================================================= */
+
+   .experience {
+    --w4-gold-soft: #d6bd8b;
+    --w4-gold-deep: #a78043;
+    --w4-gold: #c7a76b;
+    --w4-ivory: #fff8ed;
+    --w4-ivory-dark: #f2e8d6;
+    --w4-wine: #642036;
+    --w4-wine-deep: #3b0d1b;
+    --w4-terracotta: #a84f40;
+    --w4-text: #3f2926;
+  
+    min-height: 100svh;
+    color: var(--w4-text);
+    background: var(--w4-wine);
+    overflow: clip;
+  }
+  
+  .stage {
+    position: relative;
+    min-height: 100svh;
+    isolation: isolate;
+  }
+  
+  .saveDateLayer,
+  .weddingLayer {
+    min-height: 100svh;
+    transition:
+      opacity var(--w4-transition) cubic-bezier(.2, .7, .2, 1),
+      transform var(--w4-transition) cubic-bezier(.2, .7, .2, 1),
+      filter var(--w4-transition) cubic-bezier(.2, .7, .2, 1),
+      visibility var(--w4-transition);
+  }
+  
+  .saveDateLayer {
+    position: relative;
+    z-index: 2;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  
+  .weddingLayer {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: var(--w4-cream);
+    opacity: 0;
+    transform: translateY(2vh);
+    filter: blur(4px);
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  .stageOpened .saveDateLayer {
+    opacity: 0;
+    transform: translateY(-2vh) scale(1.015);
+    filter: blur(5px);
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  .stageOpened .weddingLayer {
+    z-index: 3;
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 120ms;
+  }
+  
+  /* =========================================================
+     SAVE THE DATE — FULL-SCREEN BACKGROUND
+     ========================================================= */
+  
+  .saveDate {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+    overflow: hidden;
+    padding:
+      max(1.5rem, env(safe-area-inset-top))
+      max(1.25rem, env(safe-area-inset-right))
+      max(1.5rem, env(safe-area-inset-bottom))
+      max(1.25rem, env(safe-area-inset-left));
+    color: var(--w4-ivory);
+    background:
+      radial-gradient(
+        ellipse at 50% 35%,
+        rgb(199 167 107 / 15%),
+        transparent 42%
+      ),
+      radial-gradient(
+        ellipse at 0% 20%,
+        rgb(217 141 131 / 12%),
+        transparent 35%
+      ),
+      radial-gradient(
+        ellipse at 100% 85%,
+        rgb(147 177 133 / 10%),
+        transparent 34%
+      ),
+      linear-gradient(
+        145deg,
+        #57172a 0%,
+        var(--w4-wine) 52%,
+        #3a0d1b 100%
+      );
+  }
+  
+  .backdropPattern {
+    position: absolute;
+    z-index: -3;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.13;
+    background-image: url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d7b879' stroke-width='.65'%3E%3Cpath d='M36 3C43 17 55 29 69 36 55 43 43 55 36 69 29 55 17 43 3 36 17 29 29 17 36 3Z'/%3E%3Cpath d='M36 15C42 25 47 30 57 36 47 42 42 47 36 57 30 47 25 42 15 36 25 30 30 25 36 15Z'/%3E%3Ccircle cx='36' cy='36' r='3'/%3E%3C/g%3E%3C/svg%3E");
+    mask-image: radial-gradient(ellipse at center, #000 0%, transparent 85%);
+  }
+  
+  .lightRays {
+    position: absolute;
+    z-index: -2;
+    inset: -30%;
+    pointer-events: none;
+    opacity: 0.055;
+    background: conic-gradient(
+      from 8deg at 50% 45%,
+      transparent 0deg,
+      rgb(234 216 174 / 70%) 13deg,
+      transparent 25deg,
+      transparent 43deg,
+      rgb(198 166 109 / 55%) 55deg,
+      transparent 67deg,
+      transparent 90deg
+    );
+  }
+  
+  .saveDateAmbient .lightRays {
+    animation: raysRotate 100s linear infinite;
+  }
+  
+  .petalField {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .petal {
+    position: absolute;
+    display: block;
+    width: clamp(8px, 1.2vw, 13px);
+    height: clamp(13px, 1.9vw, 20px);
+    border: 1px solid rgb(234 216 174 / 35%);
+    border-radius: 75% 15% 75% 20%;
+    background: linear-gradient(145deg, #edb5a2, #b85c4d 80%);
+    box-shadow: 0 2px 8px rgb(20 3 9 / 15%);
+    opacity: 0.5;
+  }
+  
+  .petalOne {
+    top: 12%;
+    left: 12%;
+    --drift: 9px;
+    --rotate: 24deg;
+  }
+  
+  .petalTwo {
+    top: 21%;
+    right: 12%;
+    --drift: -11px;
+    --rotate: -28deg;
+  }
+  
+  .petalThree {
+    top: 48%;
+    left: 5%;
+    --drift: 8px;
+    --rotate: 50deg;
+  }
+  
+  .petalFour {
+    top: 54%;
+    right: 6%;
+    --drift: -8px;
+    --rotate: -40deg;
+  }
+  
+  .petalFive {
+    bottom: 18%;
+    left: 17%;
+    --drift: 7px;
+    --rotate: 15deg;
+  }
+  
+  .petalSix {
+    right: 18%;
+    bottom: 23%;
+    --drift: -9px;
+    --rotate: 42deg;
+  }
+  
+  .saveDateAmbient .petal {
+    animation: petalDrift 12s ease-in-out infinite alternate;
+  }
+  
+  .petalTwo {
+    animation-delay: -4s;
+  }
+  
+  .petalThree {
+    animation-delay: -7s;
+  }
+  
+  .petalFour {
+    animation-delay: -2s;
+  }
+  
+  .petalFive {
+    animation-delay: -9s;
+  }
+  
+  .petalSix {
+    animation-delay: -5s;
+  }
+  
+  /* Outer frame: intentionally subtle */
+  
+  .outerFrame {
+    position: absolute;
+    z-index: -1;
+    inset: 1rem;
+    border: 1px solid rgb(234 216 174 / 42%);
+    pointer-events: none;
+  }
+  
+  .outerFrame::before {
+    position: absolute;
+    inset: 5px;
+    border: 1px solid rgb(234 216 174 / 12%);
+    content: "";
+  }
+  
+  .frameCornerTopLeft,
+  .frameCornerTopRight,
+  .frameCornerBottomLeft,
+  .frameCornerBottomRight {
+    position: absolute;
+    width: clamp(1.8rem, 5vw, 3.5rem);
+    aspect-ratio: 1;
+    border-color: var(--w4-gold-soft);
+  }
+  
+  .frameCornerTopLeft {
+    top: 5px;
+    left: 5px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+  
+  .frameCornerTopRight {
+    top: 5px;
+    right: 5px;
+    border-top: 1px solid;
+    border-right: 1px solid;
+  }
+  
+  .frameCornerBottomLeft {
+    bottom: 5px;
+    left: 5px;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+  }
+  
+  .frameCornerBottomRight {
+    right: 5px;
+    bottom: 5px;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+  }
+  
+  .frameJewelTop,
+  .frameJewelBottom {
+    position: absolute;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border: 1px solid var(--w4-gold-soft);
+    background: var(--w4-wine);
+    transform: translateX(-50%) rotate(45deg);
+  }
+  
+  .frameJewelTop {
+    top: -3px;
+  }
+  
+  .frameJewelBottom {
+    bottom: -3px;
+  }
+  
+  /* Side mandalas */
+  
+  .pageOrnament {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .sideMandalaLeft,
+  .sideMandalaRight {
+    position: absolute;
+    top: 50%;
+    width: clamp(7rem, 15vw, 13rem);
+    color: var(--w4-gold);
+    opacity: 0.1;
+  }
+  
+  .sideMandalaLeft {
+    left: -3.5rem;
+    transform: translateY(-50%) rotate(-12deg);
+  }
+  
+  .sideMandalaRight {
+    right: -3.5rem;
+    transform: translateY(-50%) rotate(12deg);
+  }
+  
+  .sideMandalaLeft svg,
+  .sideMandalaRight svg {
+    display: block;
+    width: 100%;
+  }
+  
+  /* =========================================================
+     INVITATION CARD
+     Soft edges, no heavy inset frame or separate text boxes.
+     ========================================================= */
+  
+  .invitationCard {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: min(100%, 680px);
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: clamp(1rem, 2.8vh, 1.8rem) clamp(1rem, 4vw, 2.5rem);
+    overflow: hidden;
+    border: 1px solid rgb(198 166 109 / 62%);
+    border-radius: 2px;
+    background:
+      radial-gradient(
+        ellipse at 50% 42%,
+        rgb(255 255 255 / 92%),
+        transparent 72%
+      ),
+      linear-gradient(
+        145deg,
+        #fffaf1 0%,
+        var(--w4-ivory) 65%,
+        #f0e2cf 100%
+      );
+    box-shadow: 0 25px 80px rgb(16 2 8 / 23%);
+    color: var(--w4-text);
+    text-align: center;
+    isolation: isolate;
+  }
+  
+  .cardInnerFrame {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  .cardInnerFrame::before,
+  .cardInnerFrame::after {
+    position: absolute;
+    left: 50%;
+    width: min(34%, 160px);
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(167 128 67 / 58%),
+      transparent
+    );
+    content: "";
+    transform: translateX(-50%);
+  }
+  
+  .cardInnerFrame::before {
+    top: 0;
+  }
+  
+  .cardInnerFrame::after {
+    bottom: 0;
+  }
+  
+  .cardWatermark {
+    position: absolute;
+    z-index: -1;
+    top: 48%;
+    left: 50%;
+    width: min(75%, 340px);
+    margin: 0;
+    color: var(--w4-gold);
+    opacity: 0.035;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  
+  .cardWatermark svg {
+    display: block;
+    width: 100%;
+  }
+  
+  /* =========================================================
+     HEADER
+     ========================================================= */
+  
+  .cardHeader {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .headerEmblem {
+    display: grid;
+    width: clamp(2.4rem, 4.5vw, 3rem);
+    aspect-ratio: 1;
+    place-items: center;
+    margin-bottom: 0.55rem;
+    border: 1px solid rgb(167 128 67 / 42%);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgb(199 167 107 / 7%);
+  }
+  
+  .headerMandala {
+    width: 85%;
+    color: var(--w4-terracotta);
+  }
+  
+  .headerMandala svg {
+    display: block;
+    width: 100%;
+  }
+  
+  .kicker {
+    max-width: 100%;
+    margin: 0;
+    color: var(--w4-wine);
+    font-size: clamp(0.62rem, 1.5vw, 0.76rem);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    line-height: 1.7;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  
+  .headerSubline {
+    margin: 0.35rem 0 0;
+    color: #786257;
+    font-size: clamp(0.78rem, 1.5vw, 0.9rem);
+    font-style: italic;
+    line-height: 1.6;
+    text-wrap: balance;
+  }
+  
+  .lotusDivider {
+    display: flex;
+    width: min(100%, 190px);
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    margin: 0.7rem 0;
+    color: var(--w4-gold-deep);
+  }
+  
+  .lotusDivider > span {
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, currentColor);
+  }
+  
+  .lotusDivider > span:last-child {
+    transform: rotate(180deg);
+  }
+  
+  .lotusDivider svg {
+    width: 31px;
+    height: 18px;
+    flex: 0 0 auto;
+    stroke: currentColor;
+    stroke-width: 1.15;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  
+  /* =========================================================
+     COUPLE ARTWORK
+     One arch, one soft halo and no image/text overlap.
+     ========================================================= */
+  
+  .coupleArtwork {
+    position: relative;
+    display: grid;
+    box-sizing: border-box;
+    width: min(100%, 440px);
+    height: clamp(270px, 38svh, 390px);
+    min-height: 0;
+    flex: 0 0 auto;
+    place-items: center;
+    margin: 0.3rem auto 0;
+    isolation: isolate;
+  }
+  
+  .artworkArch {
+    position: absolute;
+    z-index: -2;
+    top: 4%;
+    left: 50%;
+    width: min(78%, 325px);
+    height: 94%;
+    border: 1px solid rgb(178 139 80 / 44%);
+    border-bottom: 0;
+    border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+    background: linear-gradient(
+      180deg,
+      rgb(205 172 112 / 9%),
+      transparent 80%
+    );
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+  
+  .artworkArch span {
+    position: absolute;
+    top: 2.5%;
+    bottom: 0;
+    width: 4px;
+    background: repeating-linear-gradient(
+      180deg,
+      rgb(178 139 80 / 15%) 0 3px,
+      transparent 3px 9px
+    );
+  }
+  
+  .artworkArch span:first-child {
+    left: 8%;
+  }
+  
+  .artworkArch span:last-child {
+    right: 8%;
+  }
+  
+  .artworkHalo {
+    position: absolute;
+    z-index: -1;
+    top: 12%;
+    left: 50%;
+    width: min(66%, 280px);
+    aspect-ratio: 1;
+    border: 1px solid rgb(178 139 80 / 22%);
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgb(217 141 131 / 12%),
+      transparent 72%
+    );
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+  
+  .artworkHalo::before {
+    position: absolute;
+    inset: -7%;
+    border: 1px dashed rgb(178 139 80 / 22%);
+    border-radius: 50%;
+    content: "";
+  }
+  
+  .saveDateAmbient .artworkHalo::before {
+    animation: haloRotate 80s linear infinite;
+  }
+  
+  .coupleImage {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: drop-shadow(0 6px 10px rgb(75 16 31 / 8%));
+    animation: coupleEnter 800ms cubic-bezier(.2, .7, .2, 1) both;
+  }
+  
+  .artworkFoot {
+    position: absolute;
+    z-index: 2;
+    right: 15%;
+    bottom: 0;
+    left: 15%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--w4-gold-deep);
+    pointer-events: none;
+  }
+  
+  .artworkFoot span {
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, currentColor);
+  }
+  
+  .artworkFoot span:last-child {
+    transform: rotate(180deg);
+  }
+  
+  .artworkFoot i {
+    width: 5px;
+    height: 5px;
+    border: 1px solid currentColor;
+    transform: rotate(45deg);
+  }
+  
+  /* =========================================================
+     NAMES AND DATE
+     No rectangular panel. The illustration and typography
+     occupy separate layout areas.
+     ========================================================= */
+  
+  .detailsPanel {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0.45rem 0.2rem 0;
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    color: var(--w4-text);
+    text-align: center;
+  }
+  
+  .coupleNames {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0 0.14em;
+    margin: 0;
+    color: var(--w4-wine);
+    font-size: clamp(3rem, 7.2vw, 4.8rem);
+    font-weight: 400;
+    line-height: 1.08;
+    text-align: center;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+  
+  .coupleNames > span {
+    min-width: 0;
+    max-width: 100%;
+  }
+  
+  .namesSeparator {
+    flex: 0 0 auto;
+    color: var(--w4-terracotta);
+    font-family: Georgia, serif;
+    font-size: 0.36em;
+    font-style: italic;
+    white-space: nowrap;
+  }
+  
+  .detailsPanel .lotusDivider {
+    width: min(100%, 160px);
+    margin: 0.35rem auto 0.3rem;
+  }
+  
+  .dateLabel {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0.1rem 0 0;
+    color: #49302d;
+    font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+  }
+  
+  /* =========================================================
+     OPEN INVITATION BUTTON
+     Simple, centered and separated from the artwork.
+     ========================================================= */
+  
+  .openButton {
+    position: relative;
+    z-index: 5;
+    display: inline-flex;
+    box-sizing: border-box;
+    width: min(100%, 290px);
+    min-width: 210px;
+    max-width: 100%;
+    min-height: 48px;
+    height: auto;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 0.85rem auto 0;
+    padding: 0.8rem 1.25rem;
+    border: 1px solid var(--w4-gold-deep);
+    border-radius: 2px;
+    background: var(--w4-wine);
+    color: var(--w4-ivory);
+    box-shadow: 0 4px 12px rgb(59 13 27 / 10%);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    pointer-events: auto;
+    transition:
+      background-color 220ms ease,
+      border-color 220ms ease,
+      color 220ms ease;
+  }
+  
+  .openButton span {
+    min-width: 0;
+    color: inherit;
+    overflow-wrap: anywhere;
+  }
+  
+  .openButton svg {
+    display: block;
+    position: static;
+    width: 1rem;
+    height: 1rem;
+    flex: 0 0 auto;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    transition: transform 220ms ease;
+  }
+  
+  .openButton:hover {
+    border-color: #d9bd87;
+    background: #7a2938;
+    color: #fffaf1;
+  }
+  
+  .openButton:hover svg {
+    transform: translateX(3px);
+  }
+  
+  .openButton:focus-visible {
+    outline: 2px solid var(--w4-gold);
+    outline-offset: 4px;
+  }
+  
+  .cardFooter {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    margin: 0.65rem 0 0;
+    color: #786252;
+    font-size: 0.53rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    line-height: 1.7;
+    text-align: center;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  
+  .outerCaption {
+    position: relative;
+    z-index: 1;
+    max-width: 90%;
+    margin: 0.8rem 0 0;
+    color: rgb(255 248 237 / 78%);
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+  
+  /* =========================================================
+     MAIN WEDDING CONTENT
+     ========================================================= */
+  
+  .weddingContent {
+    min-height: 100svh;
+    padding: clamp(2.5rem, 7vw, 6rem) clamp(1.2rem, 5vw, 4rem);
+    background:
+      radial-gradient(
+        ellipse at 0% 0%,
+        color-mix(in srgb, var(--w4-sage) 25%, transparent),
+        transparent 35%
+      ),
+      radial-gradient(
+        ellipse at 100% 100%,
+        color-mix(in srgb, var(--w4-turmeric) 15%, transparent),
+        transparent 30%
+      ),
+      var(--w4-cream);
+  }
+  
+  .contentHeader {
+    width: min(100%, 850px);
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .contentEyebrow {
+    margin: 0;
+    color: var(--w4-vermilion);
+    font-size: 0.65rem;
+    line-height: 1.7;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  
+  .contentNames {
+    margin: 0.5rem 0 0;
+    color: var(--w4-maroon);
+    font-size: clamp(3rem, 9vw, 6rem);
+    font-weight: 400;
+    line-height: 1;
+  }
+  
+  .contentNames span {
+    color: var(--w4-vermilion);
+    font-size: 0.55em;
+  }
+  
+  .contentDate {
+    margin: 1rem 0 0;
+    color: var(--w4-ink);
+    font-size: clamp(1.2rem, 3vw, 1.7rem);
+  }
+  
+  .contentDivider {
+    display: flex;
+    width: min(100%, 230px);
+    align-items: center;
+    gap: 0.7rem;
+    margin: 2.5rem auto;
+    color: var(--w4-gold);
+  }
+  
+  .contentDivider > span:first-child,
+  .contentDivider > span:last-child {
+    height: 1px;
+    flex: 1;
+    background: currentColor;
+  }
+  
+  .dividerDiamond {
+    width: 8px;
+    height: 8px;
+    border: 1px solid currentColor;
+    transform: rotate(45deg);
+  }
+  
+  .placeholderSection {
+    box-sizing: border-box;
+    width: min(100%, 650px);
+    margin: 0 auto;
+    padding: clamp(1.8rem, 5vw, 3.5rem);
+    border: 1px solid color-mix(in srgb, var(--w4-gold) 65%, transparent);
+    background: rgb(255 255 255 / 35%);
+    text-align: center;
+  }
+  
+  .welcomeTitle {
+    margin: 0.9rem 0;
+    color: var(--w4-maroon);
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.12;
+  }
+  
+  .welcomeCopy {
+    max-width: 28rem;
+    margin: 0 auto;
+    color: color-mix(in srgb, var(--w4-ink) 82%, transparent);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  
+  .contentFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 3rem auto 0;
+    color: var(--w4-gold);
+  }
+  
+  .contentFooter p {
+    color: var(--w4-maroon);
+  }
+  
+  /* =========================================================
+     ANIMATIONS
+     ========================================================= */
+  
+  @keyframes coupleEnter {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.99);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes haloRotate {
+    to {
+      transform: translateX(-50%) rotate(360deg);
+    }
+  }
+  
+  @keyframes raysRotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes petalDrift {
+    from {
+      translate: 0 0;
+      rotate: var(--rotate, 0deg);
+    }
+  
+    to {
+      translate: 0 var(--drift, 8px);
+      rotate: calc(var(--rotate, 0deg) + 12deg);
+    }
+  }
+  
+  /* =========================================================
+     TABLET
+     ========================================================= */
+  
+  @media (max-width: 760px) {
+    .saveDate {
+      justify-content: center;
+      padding:
+        max(1rem, env(safe-area-inset-top))
+        max(0.85rem, env(safe-area-inset-right))
+        max(1.4rem, env(safe-area-inset-bottom))
+        max(0.85rem, env(safe-area-inset-left));
+    }
+  
+    .invitationCard {
+      width: 100%;
+      max-width: 540px;
+      padding: 1rem 0.9rem 1.15rem;
+    }
+  
+    .coupleArtwork {
+      width: min(100%, 380px);
+      height: clamp(250px, 36svh, 330px);
+      margin-top: 0.2rem;
+    }
+  
+    .coupleNames {
+      font-size: clamp(2.8rem, 9.5vw, 4rem);
+    }
+  
+    .sideMandalaLeft {
+      left: -5.5rem;
+    }
+  
+    .sideMandalaRight {
+      right: -5.5rem;
+    }
+  }
+  
+  /* =========================================================
+     MOBILE
+     ========================================================= */
+  
+  @media (max-width: 520px) {
+    .saveDate {
+      justify-content: center;
+      padding:
+        max(0.85rem, env(safe-area-inset-top))
+        max(0.8rem, env(safe-area-inset-right))
+        max(1.3rem, env(safe-area-inset-bottom))
+        max(0.8rem, env(safe-area-inset-left));
+    }
+  
+    .outerFrame {
+      inset: 0.55rem;
+    }
+  
+    .invitationCard {
+      width: 100%;
+      max-width: 440px;
+      padding: 0.9rem 0.75rem 1rem;
+      box-shadow: 0 18px 48px rgb(16 2 8 / 22%);
+    }
+  
+    .headerEmblem {
+      width: 2.2rem;
+      margin-bottom: 0.4rem;
+    }
+  
+    .kicker {
+      font-size: clamp(0.57rem, 2.35vw, 0.69rem);
+      letter-spacing: 0.15em;
+    }
+  
+    .headerSubline {
+      margin-top: 0.2rem;
+      font-size: 0.77rem;
+    }
+  
+    .cardHeader > .lotusDivider {
+      width: min(75%, 170px);
+      margin: 0.45rem 0;
+    }
+  
+    .lotusDivider svg {
+      width: 27px;
+      height: 16px;
+    }
+  
+    .coupleArtwork {
+      width: min(100%, 360px);
+      height: clamp(245px, 36svh, 320px);
+      margin: 0.1rem auto 0;
+    }
+  
+    .artworkArch {
+      width: 84%;
+    }
+  
+    .artworkHalo {
+      width: 68%;
+    }
+  
+    .artworkFoot {
+      right: 10%;
+      left: 10%;
+    }
+  
+    .detailsPanel {
+      padding-top: 0.3rem;
+    }
+  
+    .coupleNames {
+      gap: 0.02em 0.12em;
+      font-size: clamp(2.7rem, 10vw, 3.7rem);
+      line-height: 1.1;
+    }
+  
+    .namesSeparator {
+      font-size: 0.33em;
+    }
+  
+    .detailsPanel .lotusDivider {
+      margin: 0.3rem auto 0.25rem;
+    }
+  
+    .dateLabel {
+      margin-top: 0.1rem;
+      font-size: clamp(1rem, 4.2vw, 1.25rem);
+    }
+  
+    .openButton {
+      width: min(100%, 270px);
+      min-width: 0;
+      min-height: 46px;
+      margin-top: 0.7rem;
+      padding: 0.75rem 0.85rem;
+      gap: 0.6rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.09em;
+    }
+  
+    .cardFooter {
+      margin-top: 0.55rem;
+      font-size: 0.47rem;
+      letter-spacing: 0.08em;
+    }
+  
+    .outerCaption {
+      max-width: 85%;
+      margin-top: 0.65rem;
+      font-size: 0.47rem;
+      letter-spacing: 0.11em;
+    }
+  
+    .sideMandalaLeft,
+    .sideMandalaRight {
+      width: 7rem;
+      opacity: 0.07;
+    }
+  
+    .sideMandalaLeft {
+      left: -4.5rem;
+    }
+  
+    .sideMandalaRight {
+      right: -4.5rem;
+    }
+  
+    .petalThree,
+    .petalFive {
+      display: none;
+    }
+  
+    .weddingContent {
+      padding: 3rem 1rem;
+    }
+  
+    .placeholderSection {
+      padding: 1.5rem 1rem;
+    }
+  }
+  
+  /* Short screens: preserve all content and allow scrolling. */
+  
+  @media (max-width: 760px) and (max-height: 740px) {
+    .saveDate {
+      justify-content: flex-start;
+    }
+  
+    .invitationCard {
+      padding-top: 0.8rem;
+      padding-bottom: 0.9rem;
+    }
+  
+    .headerEmblem {
+      width: 1.9rem;
+      margin-bottom: 0.25rem;
+    }
+  
+    .headerSubline {
+      font-size: 0.72rem;
+    }
+  
+    .cardHeader > .lotusDivider {
+      margin-top: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+  
+    .coupleArtwork {
+      height: clamp(205px, 30svh, 255px);
+    }
+  
+    .coupleNames {
+      font-size: clamp(2.5rem, 9.5vw, 3.2rem);
+    }
+  
+    .dateLabel {
+      font-size: 1rem;
+    }
+  
+    .openButton {
+      min-height: 44px;
+      margin-top: 0.6rem;
+      padding-top: 0.65rem;
+      padding-bottom: 0.65rem;
+    }
+  
+    .outerCaption {
+      margin-top: 0.55rem;
+    }
+  }
+  
+  /* Very narrow phones */
+  
+  @media (max-width: 350px) {
+    .saveDate {
+      padding-right: 0.65rem;
+      padding-left: 0.65rem;
+    }
+  
+    .invitationCard {
+      padding-right: 0.55rem;
+      padding-left: 0.55rem;
+    }
+  
+    .coupleArtwork {
+      height: 205px;
+    }
+  
+    .coupleNames {
+      font-size: clamp(2.2rem, 9.4vw, 2.8rem);
+    }
+  
+    .kicker {
+      letter-spacing: 0.1em;
+    }
+  
+    .openButton {
+      font-size: 0.55rem;
+      letter-spacing: 0.075em;
+    }
+  }
+  
+  /* Landscape phones */
+  
+  @media (max-width: 900px) and (orientation: landscape) and (max-height: 520px) {
+    .saveDate {
+      justify-content: flex-start;
+      padding-top: max(0.8rem, env(safe-area-inset-top));
+      padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+  
+    .invitationCard {
+      width: min(100%, 560px);
+      padding: 0.8rem 1.1rem;
+    }
+  
+    .headerEmblem {
+      display: none;
+    }
+  
+    .coupleArtwork {
+      height: 200px;
+    }
+  
+    .coupleNames {
+      font-size: 2.8rem;
+    }
+  
+    .sideMandalaLeft,
+    .sideMandalaRight {
+      display: none;
+    }
+  }
+  
+  /* Accessibility */
+  
+  @media (hover: none) {
+    .openButton:hover {
+      background: var(--w4-wine);
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .saveDateLayer,
+    .weddingLayer,
+    .coupleImage,
+    .openButton,
+    .openButton svg,
+    .saveDateAmbient .petal,
+    .saveDateAmbient .lightRays,
+    .saveDateAmbient .artworkHalo::before {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+  
+  /* ─── Cinematic wedding hero ─── */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 100svh;
+  min-height: max(720px, 100svh);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #271713;
+  color: #fffaf0;
+}
+
+.heroMedia,
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.heroMedia {
+  overflow: hidden;
+  background: #271713;
+}
+
+.heroVideo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(27, 15, 12, 0.34) 0%,
+      rgba(27, 15, 12, 0.22) 30%,
+      rgba(27, 15, 12, 0.57) 72%,
+      rgba(27, 15, 12, 0.78) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(27, 15, 12, 0.38) 0%,
+      rgba(27, 15, 12, 0.08) 50%,
+      rgba(27, 15, 12, 0.38) 100%
+    );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  width: min(900px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 120px 0 140px;
+  text-align: center;
+  animation: heroContentReveal 1.2s ease-out both;
+}
+
+.heroEyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  color: #f1d9aa;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+.heroOrnament {
+  color: #d9b77c;
+  font-size: 10px;
+}
+
+.heroTitle {
+  max-width: 850px;
+  margin: 0 auto;
+  color: #fffaf0;
+  font-family: var(--font-cormorant, "Cormorant Garamond"), Georgia, serif;
+  font-size: clamp(3.5rem, 8vw, 7.2rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  text-wrap: balance;
+  text-shadow: 0 3px 30px rgba(0, 0, 0, 0.18);
+}
+
+.heroDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin: 34px auto 25px;
+}
+
+.heroDivider > span:not(.heroDividerDiamond) {
+  width: 52px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(231, 199, 145, 0.9)
+  );
+}
+
+.heroDivider > span:first-child {
+  transform: rotate(180deg);
+}
+
+.heroDividerDiamond {
+  color: #e7c791;
+  font-size: 9px;
+}
+
+.heroDescription {
+  max-width: 570px;
+  margin: 0 auto;
+  color: rgba(255, 250, 240, 0.91);
+  font-family: var(--font-cormorant, "Cormorant Garamond"), Georgia, serif;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.8;
+  text-wrap: pretty;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+}
+
+.heroCoupleNames {
+  margin: 30px 0 0;
+  color: #f1d9aa;
+  font-family: var(--font-allura, "Allura"), cursive;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.heroDetails {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+  color: rgba(255, 250, 240, 0.9);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+.heroDetailDot {
+  color: #e7c791;
+}
+
+.heroScroll {
+  position: absolute;
+  z-index: 2;
+  bottom: 28px;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 250, 240, 0.88);
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+.heroScrollText {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.heroScrollLine {
+  display: block;
+  width: 1px;
+  height: 35px;
+  background: linear-gradient(
+    180deg,
+    #e7c791,
+    rgba(231, 199, 145, 0.08)
+  );
+  transform-origin: top;
+  animation: heroScrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes heroContentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroScrollPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scaleY(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* ─── Mobile layout ─── */
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 100svh;
+    min-height: max(650px, 100svh);
+  }
+
+  .heroVideo {
+    object-position: 50% center;
+  }
+
+  .heroOverlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(27, 15, 12, 0.36) 0%,
+        rgba(27, 15, 12, 0.3) 35%,
+        rgba(27, 15, 12, 0.66) 75%,
+        rgba(27, 15, 12, 0.82) 100%
+      ),
+      rgba(27, 15, 12, 0.12);
+  }
+
+  .heroContent {
+    width: calc(100% - 38px);
+    padding: 100px 0 125px;
+  }
+
+  .heroEyebrow {
+    gap: 10px;
+    margin-bottom: 25px;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+  }
+
+  .heroTitle {
+    max-width: 520px;
+    font-size: clamp(3.15rem, 13vw, 5rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+
+  .heroDivider {
+    margin: 27px auto 20px;
+  }
+
+  .heroDescription {
+    max-width: 440px;
+    font-size: 1.12rem;
+    line-height: 1.7;
+  }
+
+  .heroCoupleNames {
+    margin-top: 25px;
+    font-size: clamp(2.7rem, 12vw, 3.6rem);
+  }
+
+  .heroDetails {
+    gap: 8px;
+    margin-top: 12px;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+
+  .heroScroll {
+    bottom: 20px;
+    gap: 9px;
+  }
+
+  .heroScrollText {
+    font-size: 8px;
+    letter-spacing: 0.15em;
+  }
+
+  .heroScrollLine {
+    height: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroContent {
+    animation: none;
+  }
+
+  .heroScrollLine {
+    animation: none;
+  }
+}
+
+.musicButton {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 1px solid rgba(194, 155, 99, 0.65);
+  border-radius: 2px;
+  background: rgba(39, 23, 19, 0.88);
+  color: #fff7e8;
+  font-family: var(--font-cinzel, Georgia, serif);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition:
+    background 200ms ease,
+    border-color 200ms ease;
+}
+
+.musicButton:hover {
+  background: rgba(70, 42, 31, 0.96);
+  border-color: #d9b77c;
+}
+
+.musicButton:focus-visible {
+  outline: 2px solid #d9b77c;
+  outline-offset: 4px;
+}
+
+.musicButton span:first-child {
+  color: #e7c791;
+  font-size: 15px;
+}
+
+@media (max-width: 640px) {
+  .musicButton {
+    right: 14px;
+    bottom: 14px;
+    padding: 11px 13px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .musicButton {
+    transition: none;
+  }
+}
+
+/* ─── Vibrant Hindu wedding calendar ─── */
+
+.weddingCalendarSection {
+  width: calc(100% - 40px);
+  max-width: 1240px;
+  margin: 28px auto 36px;
+  padding: 0;
+
+  background: transparent;
+}
+
+.weddingCalendarCard {
+  display: grid;
+  grid-template-columns: minmax(235px, 0.82fr) minmax(320px, 1.18fr);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid rgba(173, 137, 80, 0.7);
+  background: #fffaf0;
+  box-shadow: 0 12px 36px rgb(73 29 40 / 10%);
+}
+
+/* Decorative maroon panel */
+
+.weddingCalendarArtPanel {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 30px 23px;
+  background:
+    radial-gradient(circle at 50% 32%, rgba(223, 175, 99, 0.19), transparent 40%),
+    linear-gradient(150deg, #782d37 0%, #61212e 55%, #431a25 100%);
+  color: #f6e3b7;
+}
+
+.weddingCalendarArtPanel::before {
+  position: absolute;
+  z-index: -1;
+  inset: 12px;
+  border: 1px solid rgba(226, 190, 124, 0.4);
+  content: "";
+  pointer-events: none;
+}
+
+.weddingCalendarArtPanel::after {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(226, 190, 124, 0.13);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 12px rgba(226, 190, 124, 0.035),
+    0 0 0 25px rgba(226, 190, 124, 0.035);
+  content: "";
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.calendarCorner {
+  position: absolute;
+  z-index: 1;
+  width: 27px;
+  height: 27px;
+  border-color: rgba(229, 192, 123, 0.8);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.calendarCornerTop {
+  top: 20px;
+  left: 20px;
+  border-width: 1px 0 0 1px;
+}
+
+.calendarCornerBottom {
+  right: 20px;
+  bottom: 20px;
+  border-width: 0 1px 1px 0;
+}
+
+.calendarArtContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+}
+
+.weddingCalendarEyebrow {
+  margin: 0 0 20px;
+  color: #f4d69b;
+  font-family: var(--font-cinzel, Georgia, serif);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+}
+
+.weddingCalendarGaneshFrame {
+  position: relative;
+  display: flex;
+  width: 112px;
+  height: 112px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  border: 1px solid rgba(232, 197, 131, 0.55);
+  border-radius: 50%;
+  background: rgba(255, 238, 197, 0.055);
+}
+
+.calendarHalo {
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(232, 197, 131, 0.42);
+  border-radius: 50%;
+}
+
+.weddingCalendarGanesh {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%)
+    invert(94%) sepia(17%) saturate(300%)
+    hue-rotate(358deg) brightness(105%) contrast(65%);
+  opacity: 0.9;
+}
+
+.calendarArtCaption {
+  margin: 0;
+  color: rgba(255, 238, 197, 0.8);
+  font-family: var(--font-cormorant, Georgia, serif);
+  font-size: 16px;
+  font-style: italic;
+}
+
+.calendarArtDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin: 19px 0 8px;
+  color: #e9c47e;
+  font-size: 10px;
+}
+
+.calendarArtDivider span:not(:nth-child(2)) {
+  width: 30px;
+  height: 1px;
+  background: rgba(232, 197, 131, 0.55);
+}
+
+.calendarArtDate {
+  margin: 0;
+  color: #fff0cf;
+  font-family: var(--font-cormorant, Georgia, serif);
+  font-size: 66px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.calendarArtMonth {
+  margin: 5px 0 0;
+  color: #f4d69b;
+  font-family: var(--font-cinzel, Georgia, serif);
+  font-size: 10px;
+  letter-spacing: 0.11em;
+}
+
+.calendarArtCouple {
+  margin: 17px 0 0;
+  color: #fff0cf;
+  font-family: var(--font-allura, cursive);
+  font-size: 31px;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.calendarArtSun {
+  position: absolute;
+  right: 19px;
+  bottom: 16px;
+  color: rgba(239, 201, 130, 0.6);
+  font-size: 21px;
+}
+
+/* Calendar panel */
+
+.weddingCalendarDetails {
+  min-width: 0;
+  padding: 27px 30px 22px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(207, 165, 100, 0.1), transparent 32%),
+    #fffaf0;
+}
+
+.weddingCalendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid rgba(173, 137, 80, 0.32);
+}
+
+.calendarSectionEyebrow {
+  margin: 0 0 4px;
+  color: var(--w4-vermilion, #a74435);
+  font-family: var(--font-cinzel, Georgia, serif);
+  font-size: 8px;
+  letter-spacing: 0.17em;
+}
+
+.weddingCalendarTitle {
+  margin: 0;
+  color: var(--w4-maroon, #642c32);
+  font-family: var(--font-cormorant, Georgia, serif);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.calendarHeaderFlower {
+  color: var(--w4-vermilion, #a74435);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.weddingCalendarMonth {
+  padding: 17px 0 13px;
+  color: var(--w4-maroon, #642c32);
+  font-family: var(--font-cinzel, Georgia, serif);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.weddingCalendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  row-gap: 5px;
+  text-align: center;
+}
+
+.weddingCalendarWeekday {
+  padding-bottom: 8px;
+  color: var(--w4-vermilion, #a74435);
+  font-family: var(--font-cinzel, Georgia, serif);
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.weddingCalendarCell {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1.15;
+}
+
+.weddingCalendarDay,
+.weddingCalendarWeddingDay {
+  position: relative;
+  display: flex;
+  width: 29px;
+  height: 29px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: var(--font-cormorant, Georgia, serif);
+  font-size: 14px;
+}
+
+.weddingCalendarDay {
+  color: #49362e;
+}
+
+.weddingCalendarWeddingDay {
+  border: 1px solid #e4bd77;
+  background: var(--w4-maroon, #642c32);
+  color: #fff5dc;
+  box-shadow: 0 0 0 3px rgba(190, 146, 78, 0.16);
+}
+
+.weddingCalendarMark {
+  position: absolute;
+  top: -5px;
+  right: -3px;
+  color: #c18c43;
+  font-size: 10px;
+}
+
+.weddingCalendarDateSummary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 17px;
+  padding: 13px 8px;
+  border-top: 1px solid rgba(173, 137, 80, 0.3);
+  border-bottom: 1px solid rgba(173, 137, 80, 0.3);
+}
+
+.calendarDateIcon {
+  color: var(--w4-vermilion, #a74435);
+  font-size: 17px;
+}
+
+.weddingCalendarDate {
+  margin: 0;
+  color: var(--w4-maroon, #642c32);
+  font-family: var(--font-cormorant, Georgia, serif);
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.weddingCalendarVenue {
+  margin: 3px 0 0;
+  color: var(--w4-ink, #39251f);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.weddingCalendarButton {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 15px;
+  padding: 10px 12px;
+  border: 1px solid var(--w4-maroon, #642c32);
+  background: var(--w4-maroon, #642c32);
+  color: #fff5dc;
+  font-family: var(--font-cinzel, Georgia, serif);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.weddingCalendarButton:hover {
+  border-color: var(--w4-vermilion, #a74435);
+  background: var(--w4-vermilion, #a74435);
+}
+
+.weddingCalendarButton span {
+  margin-left: auto;
+  font-size: 13px;
+}
+
+.weddingCalendarButton:focus-visible {
+  outline: 2px solid var(--w4-gold, #ad8950);
+  outline-offset: 3px;
+}
+
+.weddingCalendarFootnote {
+  margin: 12px 0 0;
+  color: var(--w4-ink, #39251f);
+  font-family: var(--font-cormorant, Georgia, serif);
+  font-size: 15px;
+  font-style: italic;
+  text-align: center;
+  opacity: 0.75;
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+  .weddingCalendarSection {
+    width: calc(100% - 24px);
+    margin: 18px auto 26px;
+  }
+}
+
+@media (max-width: 620px) {
+  .weddingCalendarSection {
+    padding: 24px 13px;
+  }
+
+  .weddingCalendarCard {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(100%, 390px);
+  }
+
+  .weddingCalendarArtPanel {
+    padding: 25px 22px 23px;
+  }
+
+  .weddingCalendarArtPanel::after {
+    width: 180px;
+    height: 180px;
+  }
+
+  .weddingCalendarEyebrow {
+    margin-bottom: 12px;
+  }
+
+  .weddingCalendarGaneshFrame {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 8px;
+  }
+
+  .weddingCalendarGanesh {
+    width: 54px;
+    height: 54px;
+  }
+
+  .calendarArtDivider {
+    margin: 11px 0 5px;
+  }
+
+  .calendarArtDate {
+    font-size: 46px;
+  }
+
+  .calendarArtCouple {
+    margin-top: 8px;
+    font-size: 27px;
+  }
+
+  .weddingCalendarDetails {
+    padding: 22px 25px 20px;
+  }
+
+  .weddingCalendarTitle {
+    font-size: 29px;
+  }
+
+  .weddingCalendarCell {
+    aspect-ratio: 1.12;
+  }
+}
+
+@media (max-width: 360px) {
+  .weddingCalendarDetails {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .weddingCalendarDay,
+  .weddingCalendarWeddingDay {
+    width: 26px;
+    height: 26px;
+  }
+
+  .weddingCalendarButton {
+    gap: 6px;
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weddingCalendarButton {
+    transition: none;
+  }
+}
+
+
+/* =========================================
+   TEMPLATE 4 — REFINED WEDDING CALENDAR
+   ========================================= */
+
+   .weddingCalendarSection {
+    width: 100%;
+    padding: 24px 16px 32px;
+    background: var(--w4-cream);
+  }
+  
+  .weddingCalendarCard {
+    width: min(100%, 980px);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: stretch;
+    overflow: hidden;
+    border: 1px solid var(--w4-gold);
+    background: #fffaf1;
+    box-shadow: 0 12px 36px rgb(73 29 40 / 8%);
+  }
+  
+  /* MAROON GANESH PANEL */
+  
+  .weddingCalendarArtPanel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    padding: 36px 28px;
+    overflow: hidden;
+    background: var(--w4-maroon);
+    color: #f2dfb1;
+  }
+  
+  .weddingCalendarArtPanel::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgb(222 190 125 / 48%);
+    pointer-events: none;
+  }
+  
+  .calendarArtContent {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .weddingCalendarEyebrow {
+    margin: 0 0 22px;
+    color: #e9c981;
+    font-family: var(--font-cormorant), serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+  
+  .weddingCalendarGaneshFrame {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 104px;
+    height: 104px;
+    margin-bottom: 16px;
+    border: 1px solid rgb(226 195 132 / 75%);
+    border-radius: 50%;
+  }
+  
+  .calendarHalo {
+    position: absolute;
+    inset: 7px;
+    border: 1px dashed rgb(226 195 132 / 45%);
+    border-radius: 50%;
+  }
+  
+  .weddingCalendarGanesh {
+    position: relative;
+    z-index: 1;
+    width: 62px;
+    height: 72px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%)
+      invert(94%) sepia(17%) saturate(300%)
+      hue-rotate(358deg) brightness(105%) contrast(50%);
+    opacity: 0.85;
+  }
+  
+  .calendarArtCaption {
+    margin: 0;
+    color: #f0dfbd;
+    font-family: var(--font-cormorant), serif;
+    font-size: clamp(19px, 2vw, 25px);
+  }
+  
+  .calendarArtDivider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 140px;
+    margin: 15px 0 12px;
+    color: #e8c274;
+    font-size: 13px;
+  }
+  
+  .calendarArtDivider span:first-child,
+  .calendarArtDivider span:last-child {
+    flex: 1;
+    height: 1px;
+    background: rgb(232 194 116 / 65%);
+  }
+  
+  .calendarArtDate {
+    margin: 0;
+    color: #fff0cf;
+    font-family: var(--font-cormorant), serif;
+    font-size: clamp(52px, 6vw, 68px);
+    font-weight: 400;
+    line-height: 0.95;
+  }
+  
+  .calendarArtMonth {
+    margin: 7px 0 12px;
+    color: #e7c47f;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  
+  .calendarArtCouple {
+    max-width: 100%;
+    margin: 0;
+    color: #fff0dc;
+    font-family: var(--font-allura), cursive;
+    font-size: clamp(30px, 3.5vw, 42px);
+    line-height: 1.1;
+  }
+  
+  .calendarCorner {
+    position: absolute;
+    z-index: 2;
+    width: 22px;
+    height: 22px;
+    border-color: #d9b775;
+    border-style: solid;
+    opacity: 0.8;
+  }
+  
+  .calendarCornerTop {
+    top: 24px;
+    left: 24px;
+    border-width: 1px 0 0 1px;
+  }
+  
+  .calendarCornerBottom {
+    right: 24px;
+    bottom: 24px;
+    border-width: 0 1px 1px 0;
+  }
+  
+  .calendarArtSun {
+    position: absolute;
+    right: 32px;
+    bottom: 30px;
+    color: #d9b775;
+    font-size: 23px;
+  }
+  
+  /* IVORY CALENDAR PANEL */
+  
+  .weddingCalendarDetails {
+    min-width: 0;
+    padding: 32px clamp(22px, 4vw, 44px) 26px;
+    color: var(--w4-ink);
+  }
+  
+  .weddingCalendarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid rgb(164 119 66 / 28%);
+  }
+  
+  .calendarSectionEyebrow {
+    margin: 0 0 5px;
+    color: var(--w4-vermilion);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+  }
+  
+  .weddingCalendarTitle {
+    margin: 0;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: clamp(30px, 3.5vw, 42px);
+    font-weight: 400;
+    line-height: 1.1;
+  }
+  
+  .calendarHeaderFlower {
+    flex-shrink: 0;
+    color: var(--w4-vermilion);
+    font-size: 27px;
+  }
+  
+  .weddingCalendarMonth {
+    margin: 19px 0 12px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: 18px;
+    letter-spacing: 0.13em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  /* COMPACT MONTH GRID */
+  
+  .weddingCalendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    align-items: center;
+    justify-items: center;
+    row-gap: 5px;
+    width: 100%;
+  }
+  
+  .weddingCalendarWeekday {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 25px;
+    color: var(--w4-vermilion);
+    font-family: var(--font-cormorant), serif;
+    font-size: 12px;
+  }
+  
+  .weddingCalendarCell {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-width: 0;
+    min-height: 40px;
+  }
+  
+  .weddingCalendarDay,
+  .weddingCalendarWeddingDay {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: 14px;
+    border-radius: 50%;
+  }
+  
+  .weddingCalendarWeddingDay {
+    background: var(--w4-maroon);
+    color: #fff3d8;
+    box-shadow: 0 0 0 3px #ead5a9;
+  }
+  
+  .weddingCalendarMark {
+    position: absolute;
+    top: -6px;
+    right: -5px;
+    color: #c89a4b;
+    font-family: serif;
+    font-size: 12px;
+  }
+  
+  /* DATE SUMMARY */
+  
+  .weddingCalendarDateSummary {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 17px;
+    padding: 17px 0;
+    border-top: 1px solid rgb(164 119 66 / 28%);
+    border-bottom: 1px solid rgb(164 119 66 / 28%);
+  }
+  
+  .calendarDateIcon {
+    flex-shrink: 0;
+    color: var(--w4-vermilion);
+    font-size: 21px;
+  }
+  
+  .weddingCalendarDate {
+    margin: 0;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: 21px;
+    line-height: 1.2;
+  }
+  
+  .weddingCalendarVenue {
+    margin: 5px 0 0;
+    color: #78685f;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+  
+  /* CALENDAR ACTION */
+  
+  .weddingCalendarButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    width: 100%;
+    min-height: 47px;
+    margin-top: 17px;
+    padding: 12px 16px;
+    border: 1px solid var(--w4-maroon);
+    background: var(--w4-maroon);
+    color: #fff2d8;
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+  
+  .weddingCalendarButton span {
+    margin-left: auto;
+    font-size: 15px;
+  }
+  
+  .weddingCalendarButton:hover {
+    background: transparent;
+    color: var(--w4-maroon);
+  }
+  
+  .weddingCalendarFootnote {
+    margin: 16px 0 0;
+    color: #8c7970;
+    font-family: var(--font-cormorant), serif;
+    font-size: 17px;
+    font-style: italic;
+    text-align: center;
+  }
+  
+  /* TABLET AND MOBILE */
+  
+  @media (max-width: 640px) {
+    .weddingCalendarSection {
+      padding: 14px 10px 22px;
+    }
+  
+    .weddingCalendarCard {
+      grid-template-columns: minmax(0, 1fr);
+      width: 100%;
+    }
+  
+    .weddingCalendarArtPanel {
+      padding: 28px 20px 26px;
+    }
+  
+    .weddingCalendarEyebrow {
+      margin-bottom: 15px;
+    }
+  
+    .weddingCalendarGaneshFrame {
+      width: 82px;
+      height: 82px;
+      margin-bottom: 12px;
+    }
+  
+    .weddingCalendarGanesh {
+      width: 50px;
+      height: 58px;
+    }
+  
+    .calendarArtDivider {
+      margin: 11px 0 9px;
+    }
+  
+    .calendarArtDate {
+      font-size: 52px;
+    }
+  
+    .calendarArtMonth {
+      margin-bottom: 8px;
+    }
+  
+    .calendarArtCouple {
+      font-size: 35px;
+    }
+  
+    .calendarCornerTop {
+      top: 19px;
+      left: 19px;
+    }
+  
+    .calendarCornerBottom {
+      right: 19px;
+      bottom: 19px;
+    }
+  
+    .calendarArtSun {
+      right: 24px;
+      bottom: 22px;
+    }
+  
+    .weddingCalendarDetails {
+      padding: 24px 20px 22px;
+    }
+  
+    .weddingCalendarTitle {
+      font-size: 34px;
+    }
+  
+    .weddingCalendarMonth {
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+  
+    .weddingCalendarGrid {
+      row-gap: 3px;
+    }
+  
+    .weddingCalendarCell {
+      min-height: 37px;
+    }
+  
+    .weddingCalendarDateSummary {
+      margin-top: 13px;
+      padding: 14px 0;
+    }
+  
+    .weddingCalendarButton {
+      margin-top: 14px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .weddingCalendarButton {
+      transition: none;
+    }
+  }
+  
+  
+/* The wedding date is an interactive calendar link */
+.weddingCalendarWeddingDay {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--w4-maroon);
+  color: #fff3dc;
+  font-family: var(--font-cormorant), serif;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px #ead8b4;
+  transition:
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.weddingCalendarWeddingDay:hover {
+  background: var(--w4-vermilion);
+  box-shadow: 0 0 0 4px #ead8b4;
+  transform: translateY(-1px);
+}
+
+.weddingCalendarWeddingDay:focus-visible {
+  outline: 2px solid var(--w4-vermilion);
+  outline-offset: 5px;
+}
+
+.weddingCalendarMark {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  display: grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #f5e6c4;
+  color: var(--w4-maroon);
+  font-family: sans-serif;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.calendarInteractionHint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 8px 0 0;
+  color: #94734b;
+  font-size: 10px;
+  letter-spacing: 0.025em;
+  text-align: center;
+}
+
+.calendarInteractionHint span {
+  color: var(--w4-vermilion);
+  font-size: 13px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weddingCalendarWeddingDay {
+    transition: none;
+  }
+}
+
+
+/* =========================================
+   TEMPLATE 4 — COUPLE & FAMILY STORY
+   ========================================= */
+
+   .coupleStorySection {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    overflow: hidden;
+    padding: 64px 24px 38px;
+    background: var(--w4-cream);
+    color: var(--w4-maroon);
+  }
+  
+  .coupleStorySection::before,
+  .coupleStorySection::after {
+    position: absolute;
+    z-index: -1;
+    color: rgb(164 119 66 / 8%);
+    font-family: var(--font-cormorant), serif;
+    font-size: clamp(160px, 24vw, 330px);
+    line-height: 1;
+    pointer-events: none;
+  }
+  
+  .coupleStorySection::before {
+    content: "❧";
+    top: 130px;
+    left: -100px;
+    transform: rotate(-24deg);
+  }
+  
+  .coupleStorySection::after {
+    content: "❧";
+    right: -100px;
+    bottom: 90px;
+    transform: scaleX(-1) rotate(-24deg);
+  }
+  
+  .coupleStoryInner {
+    width: min(100%, 1180px);
+    margin-inline: auto;
+  }
+  
+  .coupleStoryHeader {
+    max-width: 680px;
+    margin: 0 auto 32px;
+    text-align: center;
+  }
+  
+  .coupleStoryOrnament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 9px;
+    color: #b47a36;
+  }
+  
+  .coupleStoryOrnament span:first-child,
+  .coupleStoryOrnament span:last-child {
+    width: 62px;
+    height: 1px;
+    background: #d9b980;
+  }
+  
+  .coupleStoryOrnament span:nth-child(2) {
+    font-size: 25px;
+    line-height: 1;
+  }
+  
+  .coupleStoryEyebrow {
+    margin: 0 0 8px;
+    color: var(--w4-vermilion);
+    font-size: 10px;
+    letter-spacing: 0.24em;
+  }
+  
+  .coupleStoryTitle {
+    margin: 0;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: clamp(37px, 5.1vw, 62px);
+    font-weight: 400;
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+  
+  .coupleStoryIntroduction {
+    max-width: 440px;
+    margin: 12px auto 0;
+    color: #78655a;
+    font-family: var(--font-cormorant), serif;
+    font-size: clamp(17px, 2vw, 21px);
+    line-height: 1.5;
+  }
+  
+  /* One continuous three-column composition */
+  
+  .coupleStoryComposition {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(220px, 0.94fr)
+      minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(18px, 3vw, 42px);
+  }
+  
+  .coupleFamilySide {
+    min-width: 0;
+    text-align: center;
+  }
+  
+  .coupleIdentity {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .coupleFlourish {
+    margin-bottom: 3px;
+    color: #a65e28;
+    font-family: var(--font-cormorant), serif;
+    font-size: 34px;
+    line-height: 1;
+  }
+  
+  .coupleRole {
+    margin: 0;
+    color: #a65e28;
+    font-family: var(--font-allura), cursive;
+    font-size: 30px;
+    line-height: 1;
+  }
+  
+  .couplePersonName {
+    margin: 2px 0 8px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: clamp(27px, 3vw, 38px);
+    font-weight: 400;
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+  }
+  
+  .coupleDescription {
+    max-width: 280px;
+    margin: 0 auto;
+    color: #776358;
+    font-family: var(--font-cormorant), serif;
+    font-size: 17px;
+    line-height: 1.48;
+    text-wrap: pretty;
+  }
+  
+  .coupleSmallDivider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 110px;
+    margin: 16px auto 22px;
+    color: #b47a36;
+    font-size: 12px;
+  }
+  
+  .coupleSmallDivider span:first-child,
+  .coupleSmallDivider span:last-child {
+    flex: 1;
+    height: 1px;
+    background: #d9b980;
+  }
+  
+  /* Parent portraits belong to each side of the same story */
+  
+  .familyGroup {
+    width: 100%;
+  }
+  
+  .familyGroupLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin: 0 0 14px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.3;
+  }
+  
+  .familyGroupLabel span {
+    flex-shrink: 0;
+    color: #b47a36;
+    font-size: 10px;
+  }
+  
+  .familyPortraits {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(10px, 1.5vw, 20px);
+  }
+  
+  .familyPortrait {
+    min-width: 0;
+    text-align: center;
+  }
+  
+  .familyPortraitFrame {
+    position: relative;
+    width: min(100%, 132px);
+    aspect-ratio: 0.88;
+    margin: 0 auto 9px;
+    padding: 4px;
+    border: 1px solid #c99a58;
+    border-radius: 48% 48% 44% 44%;
+    background: #f7ead4;
+  }
+  
+  .familyPortraitFrame::before {
+    position: absolute;
+    z-index: 1;
+    inset: -4px;
+    border: 1px solid rgb(183 126 57 / 40%);
+    border-radius: inherit;
+    content: "";
+    pointer-events: none;
+  }
+  
+  .familyPortraitImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .familyPortraitName {
+    margin: 0;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: clamp(14px, 1.4vw, 18px);
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+  
+  .familyPortraitRole {
+    margin: 3px 0 0;
+    color: #9d7044;
+    font-family: var(--font-cormorant), serif;
+    font-size: 14px;
+    font-style: italic;
+  }
+  
+  /* Central couple portrait */
+  
+  .couplePortraitColumn {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    flex-direction: column;
+    align-self: stretch;
+    justify-content: center;
+  }
+  
+  .couplePortraitFrame {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    padding: 9px;
+    border: 1px solid #c79a57;
+    border-radius: 48% 48% 8px 8px;
+    background: #f5e7ce;
+    box-shadow: 0 12px 35px rgb(83 39 35 / 10%);
+  }
+  
+  .couplePortraitInner {
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 0.76;
+    border-radius: 48% 48% 5px 5px;
+    background: #e9d8bd;
+  }
+  
+  .couplePortraitImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 500ms ease;
+  }
+  
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .couplePortraitFrame:hover .couplePortraitImage {
+      transform: scale(1.035);
+    }
+  }
+  
+  .couplePortraitCorner {
+    position: absolute;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    border-color: #b47a36;
+    border-style: solid;
+    pointer-events: none;
+  }
+  
+  .couplePortraitCornerTop {
+    top: -5px;
+    right: -5px;
+    border-width: 1px 1px 0 0;
+  }
+  
+  .couplePortraitCornerBottom {
+    bottom: -5px;
+    left: -5px;
+    border-width: 0 0 1px 1px;
+  }
+  
+  .couplePortraitCaption {
+    max-width: 260px;
+    margin: 14px 0 0;
+    color: #8d684d;
+    font-family: var(--font-allura), cursive;
+    font-size: 25px;
+    line-height: 1.15;
+    text-align: center;
+  }
+  
+  /* Closing sentiment */
+  
+  .coupleStoryFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    max-width: 780px;
+    margin: 32px auto 0;
+    padding-top: 19px;
+    border-top: 1px solid rgb(180 122 54 / 38%);
+    text-align: center;
+  }
+  
+  .coupleStoryRing {
+    flex-shrink: 0;
+    color: #b47a36;
+    font-size: 24px;
+    line-height: 1;
+  }
+  
+  .coupleStoryFooter p {
+    margin: 0;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-style: italic;
+  }
+  
+  /* Tablet */
+  
+  @media (max-width: 900px) {
+    .coupleStorySection {
+      padding: 48px 20px 30px;
+    }
+  
+    .coupleStoryComposition {
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(190px, 0.8fr)
+        minmax(0, 1fr);
+      gap: 16px;
+    }
+  
+    .familyPortraits {
+      gap: 8px;
+    }
+  
+    .familyPortraitFrame {
+      max-width: 112px;
+    }
+  
+    .familyGroupLabel {
+      font-size: 14px;
+    }
+  
+    .coupleDescription {
+      font-size: 16px;
+    }
+  }
+  
+  /* Mobile: retain the flowing narrative */
+  
+  @media (max-width: 640px) {
+    .coupleStorySection {
+      padding: 38px 17px 25px;
+    }
+  
+    .coupleStoryHeader {
+      margin-bottom: 25px;
+    }
+  
+    .coupleStoryTitle {
+      font-size: clamp(35px, 10vw, 47px);
+    }
+  
+    .coupleStoryIntroduction {
+      max-width: 340px;
+      font-size: 18px;
+    }
+  
+    .coupleStoryComposition {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      column-gap: 16px;
+      row-gap: 25px;
+      align-items: start;
+    }
+  
+    .couplePortraitColumn {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      width: min(76%, 310px);
+      justify-self: center;
+      margin-bottom: 5px;
+    }
+  
+    .couplePortraitFrame {
+      max-width: 270px;
+      padding: 7px;
+    }
+  
+    .couplePortraitInner {
+      aspect-ratio: 0.88;
+    }
+  
+    .couplePortraitCaption {
+      margin-top: 10px;
+      font-size: 23px;
+    }
+  
+    .coupleGroomSide {
+      grid-column: 1;
+      grid-row: 2;
+    }
+  
+    .coupleBrideSide {
+      grid-column: 2;
+      grid-row: 2;
+    }
+  
+    .coupleFlourish {
+      font-size: 28px;
+    }
+  
+    .coupleRole {
+      font-size: 26px;
+    }
+  
+    .couplePersonName {
+      font-size: clamp(23px, 6vw, 30px);
+    }
+  
+    .coupleDescription {
+      font-size: 15px;
+      line-height: 1.42;
+    }
+  
+    .coupleSmallDivider {
+      width: 78px;
+      margin: 12px auto 17px;
+    }
+  
+    .familyGroupLabel {
+      gap: 4px;
+      min-height: 34px;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+  
+    .familyGroupLabel span {
+      font-size: 8px;
+    }
+  
+    .familyPortraits {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 15px;
+    }
+  
+    .familyPortraitFrame {
+      width: min(100%, 116px);
+      aspect-ratio: 0.9;
+      margin-bottom: 7px;
+    }
+  
+    .familyPortraitName {
+      font-size: 15px;
+    }
+  
+    .familyPortraitRole {
+      font-size: 13px;
+    }
+  
+    .coupleStoryFooter {
+      gap: 9px;
+      margin-top: 26px;
+      padding-top: 15px;
+    }
+  
+    .coupleStoryFooter p {
+      font-size: 19px;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .coupleStorySection {
+      padding-inline: 12px;
+    }
+  
+    .coupleStoryComposition {
+      column-gap: 10px;
+    }
+  
+    .couplePersonName {
+      font-size: 22px;
+    }
+  
+    .coupleDescription {
+      font-size: 14px;
+    }
+  
+    .familyGroupLabel {
+      font-size: 12px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .couplePortraitImage {
+      transition: none;
+    }
+  }
+
+  
+/* =========================================
+   TEMPLATE 4 — OUR STORY
+   ========================================= */
+
+.ourStorySection {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  overflow: hidden;
+  padding: 48px 24px 56px;
+  background: var(--w4-cream);
+  color: var(--w4-maroon);
+}
+
+.ourStoryLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 76px);
+  width: min(100%, 1180px);
+  margin-inline: auto;
+}
+
+/* PHOTO SIDE */
+
+.ourStoryVisual {
+  position: relative;
+  min-width: 0;
+  padding: 0 16px 18px 0;
+}
+
+.ourStoryPhotoFrame {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  border: 1px solid #c99a58;
+  border-radius: 48% 48% 3px 3px;
+  background: #ead9bd;
+}
+
+.ourStoryPhotoFrame::before {
+  position: absolute;
+  z-index: -1;
+  inset: 12px -12px -12px 12px;
+  border: 1px solid rgb(180 122 54 / 55%);
+  border-radius: inherit;
+  content: "";
+}
+
+.ourStoryPhoto {
+  display: block;
+  width: 100%;
+  aspect-ratio: 0.79;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ourStoryPhotoOverlay {
+  position: absolute;
+  top: 12%;
+  right: 8%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  color: #fff0d1;
+  font-family: var(--font-allura), cursive;
+  font-size: clamp(34px, 4vw, 53px);
+  line-height: 0.86;
+  text-shadow: 0 2px 14px rgb(47 25 18 / 35%);
+  transform: rotate(-7deg);
+}
+
+.ourStoryPhotoOverlay span:last-child {
+  margin-left: 24px;
+  margin-top: 8px;
+}
+
+.ourStoryPhotoCorner {
+  position: absolute;
+  z-index: 2;
+  width: 26px;
+  height: 26px;
+  border-color: #e4c58c;
+  border-style: solid;
+  pointer-events: none;
+}
+
+.ourStoryPhotoCornerTop {
+  top: 14px;
+  left: 14px;
+  border-width: 1px 0 0 1px;
+}
+
+.ourStoryPhotoCornerBottom {
+  right: 14px;
+  bottom: 14px;
+  border-width: 0 1px 1px 0;
+}
+
+.ourStoryPhotoNote {
+  position: absolute;
+  z-index: 2;
+  right: -4px;
+  bottom: 3px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: min(66%, 245px);
+  padding: 17px 20px 15px;
+  border: 1px solid #d7bd91;
+  background: #f6ead4;
+  box-shadow: 0 8px 22px rgb(63 39 26 / 9%);
+  transform: rotate(-4deg);
+}
+
+.ourStoryNoteFlower {
+  margin-bottom: 3px;
+  color: #a65e28;
+  font-size: 17px;
+}
+
+.ourStoryPhotoNote p {
+  margin: 0;
+  color: #805333;
+  font-family: var(--font-allura), cursive;
+  font-size: clamp(22px, 2.5vw, 30px);
+  line-height: 1.05;
+}
+
+.ourStoryNoteRule {
+  width: 42px;
+  height: 1px;
+  margin-top: 12px;
+  background: #bd8e4c;
+}
+
+.ourStoryBotanical {
+  position: absolute;
+  z-index: -1;
+  bottom: -55px;
+  left: -42px;
+  color: rgb(104 115 72 / 35%);
+  font-family: var(--font-cormorant), serif;
+  font-size: 140px;
+  line-height: 1;
+  transform: rotate(-28deg);
+}
+
+/* STORY INTRODUCTION */
+
+.ourStoryContent {
+  min-width: 0;
+}
+
+.ourStoryHeader {
+  text-align: center;
+}
+
+.ourStoryOrnament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 9px;
+  color: #b47a36;
+}
+
+.ourStoryOrnament span:first-child,
+.ourStoryOrnament span:last-child {
+  width: 56px;
+  height: 1px;
+  background: #d5b477;
+}
+
+.ourStoryOrnament span:nth-child(2) {
+  font-size: 22px;
+}
+
+.ourStoryEyebrow {
+  margin: 0 0 10px;
+  color: var(--w4-vermilion);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+}
+
+.ourStoryTitle {
+  margin: 0;
+  color: var(--w4-maroon);
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(36px, 4.4vw, 57px);
+  font-weight: 400;
+  line-height: 0.99;
+  text-wrap: balance;
+}
+
+.ourStoryIntroduction {
+  max-width: 480px;
+  margin: 18px auto 0;
+  color: #705b4b;
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.ourStoryDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 17px auto 24px;
+  color: #b47a36;
+  font-size: 13px;
+}
+
+.ourStoryDivider span:first-child,
+.ourStoryDivider span:last-child {
+  width: 62px;
+  height: 1px;
+  background: #d5b477;
+}
+
+/* FLOWING MILESTONE TIMELINE */
+
+.ourStoryTimeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.ourStoryMilestone {
+  position: relative;
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.ourStoryMilestoneArt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 84px;
+  color: #b17b40;
+}
+
+.ourStoryMilestoneSymbol {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  border: 1px solid #d8bd8b;
+  border-radius: 50%;
+  background: #f4e8d2;
+  font-family: var(--font-cormorant), serif;
+  font-size: 31px;
+}
+
+.ourStoryTimelineDot {
+  position: absolute;
+  z-index: 2;
+  top: 7px;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #b47a36;
+  box-shadow: 0 0 0 4px var(--w4-cream);
+}
+
+.ourStoryTimelineDotLast {
+  background: var(--w4-maroon);
+}
+
+.ourStoryMilestoneText {
+  padding-top: 5px;
+}
+
+.ourStoryMilestoneLabel {
+  margin: 0 0 4px;
+  color: var(--w4-vermilion);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+
+.ourStoryMilestoneDate {
+  margin: 0;
+  color: var(--w4-maroon);
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(21px, 2vw, 26px);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.ourStoryMilestoneDescription {
+  max-width: 350px;
+  margin: 6px 0 0;
+  color: #786458;
+  font-family: var(--font-cormorant), serif;
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+/* THE CLOSING NOTE */
+
+.ourStoryFooter {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-top: 24px;
+  padding-top: 15px;
+  border-top: 1px solid rgb(180 122 54 / 35%);
+  color: #a56d37;
+  font-family: var(--font-allura), cursive;
+  font-size: clamp(25px, 3vw, 34px);
+  line-height: 0.94;
+}
+
+.ourStoryFooter p {
+  margin: 0;
+}
+
+.ourStoryFooter span {
+  margin-top: 10px;
+  margin-right: 25px;
+  font-family: var(--font-cormorant), serif;
+  font-size: 18px;
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+  .ourStorySection {
+    padding: 40px 20px 46px;
+  }
+
+  .ourStoryLayout {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .ourStoryMilestone {
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .ourStoryMilestoneSymbol {
+    width: 54px;
+    height: 54px;
+    font-size: 27px;
+  }
+
+  .ourStoryMilestoneArt {
+    min-height: 72px;
+  }
+
+  .ourStoryMilestoneDescription {
+    font-size: 16px;
+  }
+
+  .ourStoryPhotoNote {
+    width: 76%;
+    padding: 13px 15px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+  .ourStorySection {
+    padding: 32px 17px 38px;
+  }
+
+  .ourStoryLayout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 38px;
+  }
+
+  .ourStoryVisual {
+    width: min(100%, 390px);
+    margin-inline: auto;
+    padding-right: 12px;
+    padding-bottom: 20px;
+  }
+
+  .ourStoryPhoto {
+    aspect-ratio: 0.92;
+  }
+
+  .ourStoryPhotoOverlay {
+    top: 10%;
+    right: 7%;
+    font-size: 39px;
+  }
+
+  .ourStoryPhotoNote {
+    right: -1px;
+    bottom: 0;
+    width: min(65%, 220px);
+    padding: 12px 15px;
+  }
+
+  .ourStoryPhotoNote p {
+    font-size: 25px;
+  }
+
+  .ourStoryBotanical {
+    bottom: -43px;
+    left: -20px;
+    font-size: 100px;
+  }
+
+  .ourStoryContent {
+    width: 100%;
+  }
+
+  .ourStoryTitle {
+    font-size: clamp(38px, 10vw, 49px);
+  }
+
+  .ourStoryIntroduction {
+    max-width: 390px;
+    font-size: 18px;
+  }
+
+  .ourStoryDivider {
+    margin-bottom: 23px;
+  }
+
+  .ourStoryTimeline {
+    gap: 21px;
+  }
+
+  .ourStoryMilestone {
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 13px;
+  }
+
+  .ourStoryMilestoneSymbol {
+    width: 53px;
+    height: 53px;
+    font-size: 26px;
+  }
+
+  .ourStoryMilestoneArt {
+    min-height: 70px;
+  }
+
+  .ourStoryMilestoneLabel {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+  }
+
+  .ourStoryMilestoneDate {
+    font-size: 23px;
+  }
+
+  .ourStoryMilestoneDescription {
+    font-size: 17px;
+  }
+
+  .ourStoryFooter {
+    margin-top: 24px;
+    font-size: 29px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ourStoryPhoto {
+    scroll-behavior: auto;
+  }
+}
+
+
+/* Our Story — elevated card matching the calendar */
+
+.ourStorySection {
+  position: relative;
+  z-index: 1;
+  width: calc(100% - 40px);
+  max-width: 1240px;
+  margin: 28px auto 36px;
+  padding: 48px 30px 42px;
+
+  background: var(--w4-cream);
+  border: 1px solid var(--w4-gold);
+  border-radius: 3px;
+
+  box-shadow: 0 12px 36px rgb(73 29 40 / 10%);
+}
+
+/* Keep decorative elements clipped inside the card,
+   without clipping the card's outer shadow. */
+.ourStoryLayout {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile card spacing */
+@media (max-width: 640px) {
+  .ourStorySection {
+    width: calc(100% - 24px);
+    margin: 18px auto 26px;
+    padding: 30px 17px 32px;
+  }
+}
+
+
+/* =========================================
+   DESKTOP ALIGNMENT — CALENDAR + OUR STORY
+   Mobile layout remains unchanged.
+   ========================================= */
+
+   @media (min-width: 641px) {
+    .weddingCalendarSection {
+      box-sizing: border-box;
+      width: calc(100% - 40px);
+      max-width: 1240px;
+      margin: 28px auto 36px;
+      padding: 0;
+      background: transparent;
+    }
+  
+    .weddingCalendarCard {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: none;
+      margin-inline: auto;
+      box-shadow: 0 12px 36px rgb(73 29 40 / 10%);
+    }
+  }
+
+  
+/* =========================================
+   OUR STORY — EDITORIAL CHAPTER ACCORDION
+   Maroon, antique gold and warm cream
+   ========================================= */
+
+.storyAccordion {
+  position: relative;
+  margin-top: 28px;
+  padding-left: 0;
+}
+
+.storyAccordionIntro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin: 0 0 16px;
+}
+
+.storyAccordionIntro p {
+  margin: 0;
+  color: var(--w4-maroon);
+  font-family: var(--font-cinzel), serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1.7;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.storyAccordionIntroLine {
+  width: 27px;
+  height: 1px;
+  background: var(--w4-gold);
+  opacity: 0.75;
+}
+
+/* Individual chapter */
+
+.storyChapter {
+  position: relative;
+  margin: 0;
+  border-top: 1px solid rgb(151 113 65 / 28%);
+  transition:
+    background-color 280ms ease,
+    border-color 280ms ease;
+}
+
+.storyChapter:last-child {
+  border-bottom: 1px solid rgb(151 113 65 / 28%);
+}
+
+.storyChapterOpen {
+  background: rgb(151 113 65 / 5%);
+  border-top-color: rgb(151 113 65 / 58%);
+}
+
+.storyChapterRail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 27px;
+  width: 1px;
+  background: rgb(151 113 65 / 30%);
+  pointer-events: none;
+}
+
+/* Clickable heading */
+
+.storyChapterTrigger {
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px 32px minmax(0, 1fr) 28px;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 84px;
+  padding: 14px 5px 14px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--w4-ink);
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.storyChapterTrigger:focus-visible {
+  outline: 2px solid var(--w4-gold);
+  outline-offset: -3px;
+}
+
+.storyChapterNumber {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  margin-left: 14px;
+  border: 1px solid rgb(151 113 65 / 65%);
+  border-radius: 50%;
+  background: var(--w4-cream);
+  color: var(--w4-maroon);
+  font-family: var(--font-cinzel), serif;
+  font-size: 8px;
+  letter-spacing: 0.02em;
+  transition:
+    color 250ms ease,
+    background-color 250ms ease,
+    border-color 250ms ease,
+    transform 250ms ease;
+}
+
+.storyChapterSymbol {
+  display: grid;
+  place-items: center;
+  width: 29px;
+  height: 34px;
+  color: var(--w4-gold);
+  font-size: 23px;
+  line-height: 1;
+  transition:
+    color 250ms ease,
+    transform 250ms ease;
+}
+
+.storyChapterHeading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  min-width: 0;
+}
+
+.storyChapterLabel {
+  color: var(--w4-maroon);
+  font-family: var(--font-cinzel), serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  line-height: 1.6;
+  transition: letter-spacing 250ms ease;
+}
+
+.storyChapterDate {
+  color: var(--w4-ink);
+  font-family: var(--font-cormorant), serif;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+/* Minimal plus-to-minus indicator */
+
+.storyChapterToggle {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid rgb(151 113 65 / 55%);
+  border-radius: 50%;
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease,
+    transform 250ms ease;
+}
+
+.storyChapterToggle span {
+  position: absolute;
+  display: block;
+  width: 8px;
+  height: 1px;
+  background: var(--w4-maroon);
+  transition:
+    transform 250ms ease,
+    background-color 250ms ease;
+}
+
+.storyChapterToggle span:last-child {
+  transform: rotate(90deg);
+}
+
+.storyChapterOpen .storyChapterToggle {
+  border-color: var(--w4-maroon);
+  background: var(--w4-maroon);
+}
+
+.storyChapterOpen .storyChapterToggle span {
+  background: var(--w4-cream);
+}
+
+.storyChapterOpen .storyChapterToggle span:last-child {
+  transform: rotate(0deg);
+}
+
+.storyChapterOpen .storyChapterNumber {
+  border-color: var(--w4-maroon);
+  background: var(--w4-maroon);
+  color: var(--w4-cream);
+}
+
+.storyChapterOpen .storyChapterSymbol {
+  color: var(--w4-vermilion);
+  transform: rotate(-8deg);
+}
+
+.storyChapterOpen .storyChapterLabel {
+  letter-spacing: 0.17em;
+}
+
+/* Expandable description */
+
+.storyChapterPanel[hidden] {
+  display: none;
+}
+
+.storyChapterPanel {
+  padding: 0 14px 23px 84px;
+  animation: storyChapterReveal 320ms ease both;
+}
+
+.storyChapterPanelInner {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  padding: 3px 0 0;
+}
+
+.storyChapterPanelOrnament {
+  padding-top: 2px;
+  color: var(--w4-gold);
+  font-family: var(--font-cormorant), serif;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.storyChapterDescription {
+  min-width: 0;
+}
+
+.storyChapterDescription p {
+  margin: 0;
+  color: var(--w4-ink);
+  font-family: var(--font-cormorant), serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.storyChapterClosing {
+  display: inline-block;
+  margin-top: 13px;
+  padding-top: 9px;
+  border-top: 1px solid rgb(151 113 65 / 40%);
+  color: var(--w4-maroon);
+  font-family: var(--font-allura), cursive;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+@keyframes storyChapterReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Desktop interaction */
+
+@media (hover: hover) and (pointer: fine) {
+  .storyChapter:not(.storyChapterOpen) .storyChapterTrigger:hover {
+    background: rgb(151 113 65 / 4%);
+  }
+
+  .storyChapter:not(.storyChapterOpen) .storyChapterTrigger:hover
+    .storyChapterNumber {
+    border-color: var(--w4-maroon);
+  }
+
+  .storyChapter:not(.storyChapterOpen) .storyChapterTrigger:hover
+    .storyChapterToggle {
+    transform: rotate(90deg);
+  }
+}
+
+/* Tablet */
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .storyChapterTrigger {
+    grid-template-columns: 34px 28px minmax(0, 1fr) 26px;
+    gap: 7px;
+  }
+
+  .storyChapterDate {
+    font-size: 20px;
+  }
+
+  .storyChapterPanel {
+    padding-left: 75px;
+  }
+}
+
+/* Mobile — preserve the existing section layout */
+
+@media (max-width: 640px) {
+  .storyAccordion {
+    margin-top: 23px;
+  }
+
+  .storyAccordionIntro {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .storyAccordionIntroLine {
+    width: 21px;
+  }
+
+  .storyChapterRail {
+    left: 23px;
+  }
+
+  .storyChapterTrigger {
+    grid-template-columns: 30px 25px minmax(0, 1fr) 24px;
+    gap: 7px;
+    min-height: 76px;
+    padding: 12px 0;
+  }
+
+  .storyChapterNumber {
+    width: 24px;
+    height: 24px;
+    margin-left: 11px;
+    font-size: 7px;
+  }
+
+  .storyChapterSymbol {
+    width: 24px;
+    font-size: 20px;
+  }
+
+  .storyChapterLabel {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
+
+  .storyChapterDate {
+    font-size: 19px;
+  }
+
+  .storyChapterToggle {
+    width: 23px;
+    height: 23px;
+  }
+
+  .storyChapterPanel {
+    padding: 0 4px 20px 66px;
+  }
+
+  .storyChapterPanelInner {
+    grid-template-columns: 16px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .storyChapterPanelOrnament {
+    font-size: 18px;
+  }
+
+  .storyChapterDescription p {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .storyChapterClosing {
+    font-size: 22px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .storyChapter,
+  .storyChapterTrigger,
+  .storyChapterNumber,
+  .storyChapterSymbol,
+  .storyChapterLabel,
+  .storyChapterToggle,
+  .storyChapterToggle span {
+    transition: none;
+  }
+
+  .storyChapterPanel {
+    animation: none;
+  }
+}
+
+
+/* =========================================
+   RSVP — OPEN EDITORIAL LAYOUT
+   No card, outer border, or shadow
+   ========================================= */
+
+   .rsvpSection {
+    position: relative;
+    width: 100%;
+    max-width: 1240px;
+    box-sizing: border-box;
+    margin: 30px auto 50px;
+    padding: clamp(36px, 6vw, 76px) clamp(20px, 6vw, 72px);
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    color: var(--w4-ink);
+  }
+  
+  .rsvpOuterFrame {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  .rsvpInner {
+    position: relative;
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    text-align: center;
+  }
+  
+  /* Keep a small typographic ornament, not a frame */
+  
+  .rsvpCorner {
+    display: none;
+  }
+  
+  .rsvpTopOrnament {
+    gap: 14px;
+  }
+  
+  .rsvpTopOrnament > span:first-child,
+  .rsvpTopOrnament > span:last-child {
+    width: 42px;
+    height: 1px;
+    background: var(--w4-gold);
+  }
+  
+  .rsvpEyebrow {
+    margin: 17px 0 12px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cinzel), serif;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+  }
+  
+  .rsvpTitle {
+    margin: 0;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: clamp(46px, 5.5vw, 70px);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+  
+  .rsvpTitle span {
+    color: var(--w4-vermilion);
+    font-family: var(--font-allura), cursive;
+    font-size: 1.13em;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  
+  .rsvpIntroduction {
+    max-width: 420px;
+    margin: 22px auto 15px;
+    color: var(--w4-ink);
+    font-family: var(--font-cormorant), serif;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  
+  .rsvpEventDetails {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cinzel), serif;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    line-height: 1.8;
+  }
+  
+  /* Replace the seal with a simple floral divider */
+  
+  .rsvpSeal {
+    display: none;
+  }
+  
+  .rsvpEventDetails {
+    margin-bottom: 35px;
+  }
+  
+  /* Invitation question */
+  
+  .rsvpQuestion {
+    width: 100%;
+    margin: 0 0 20px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: 29px;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  /* Open choices: no card backgrounds or shadows */
+  
+  .rsvpChoices {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(20px, 5vw, 60px);
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  
+  .rsvpChoice {
+    position: relative;
+    display: flex;
+    min-height: 145px;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 12px;
+    overflow: visible;
+    border: 0;
+    border-bottom: 1px solid rgb(151 113 65 / 45%);
+    border-radius: 0;
+    background: transparent;
+    color: var(--w4-ink);
+    text-align: center;
+    cursor: pointer;
+    transition: color 220ms ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .rsvpChoice::before {
+    display: none;
+  }
+  
+  .rsvpChoiceIcon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 12px;
+    border: 1px solid rgb(151 113 65 / 60%);
+    border-radius: 50%;
+    color: var(--w4-gold);
+    font-size: 22px;
+    transition:
+      background-color 220ms ease,
+      color 220ms ease,
+      border-color 220ms ease;
+  }
+  
+  .rsvpChoiceTitle {
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  
+  .rsvpChoiceCaption {
+    margin-top: 5px;
+    color: var(--w4-ink);
+    font-family: var(--font-cormorant), serif;
+    font-size: 16px;
+    line-height: 1.4;
+    opacity: 0.8;
+  }
+  
+  .rsvpChoiceMark {
+    position: absolute;
+    top: 14px;
+    right: 7px;
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(151 113 65 / 50%);
+    border-radius: 50%;
+    color: var(--w4-maroon);
+    font-size: 11px;
+    transition:
+      background-color 220ms ease,
+      color 220ms ease;
+  }
+  
+  .rsvpChoiceSelected {
+    border-bottom-color: var(--w4-maroon);
+    background: transparent;
+  }
+  
+  .rsvpChoiceSelected .rsvpChoiceIcon {
+    border-color: var(--w4-maroon);
+    background: var(--w4-maroon);
+    color: var(--w4-cream);
+  }
+  
+  .rsvpChoiceSelected .rsvpChoiceMark {
+    border-color: var(--w4-maroon);
+    background: var(--w4-maroon);
+    color: var(--w4-cream);
+  }
+  
+  .rsvpChoiceSelected .rsvpChoiceCaption {
+    opacity: 1;
+  }
+  
+  .rsvpChoice:focus-visible,
+  .rsvpSubmit:focus-visible,
+  .rsvpGuestStepper button:focus-visible,
+  .rsvpEditReply:focus-visible {
+    outline: 2px solid var(--w4-gold);
+    outline-offset: 4px;
+  }
+  
+  .rsvpPrompt {
+    margin: 22px 0 0;
+    color: var(--w4-maroon);
+    font-family: var(--font-cinzel), serif;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+  
+  /* Details revealed after choosing */
+  
+  .rsvpDetails {
+    max-width: 500px;
+    margin: 34px auto 0;
+    padding: 25px 0 0;
+    border-top: 1px solid rgb(151 113 65 / 40%);
+    animation: rsvpReveal 350ms ease both;
+  }
+  
+  .rsvpRevealHeading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 25px;
+    text-align: left;
+  }
+  
+  .rsvpRevealNumber {
+    display: grid;
+    flex: 0 0 40px;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--w4-gold);
+    border-radius: 50%;
+    color: var(--w4-maroon);
+    font-family: var(--font-cinzel), serif;
+    font-size: 10px;
+  }
+  
+  .rsvpRevealEyebrow {
+    margin: 0 0 4px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cinzel), serif;
+    font-size: 8px;
+    letter-spacing: 0.13em;
+    line-height: 1.6;
+  }
+  
+  .rsvpRevealHeading h3 {
+    margin: 0;
+    color: var(--w4-ink);
+    font-family: var(--font-cormorant), serif;
+    font-size: 27px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  
+  /* Minimal underline fields */
+  
+  .rsvpField {
+    margin: 0 0 22px;
+    text-align: left;
+  }
+  
+  .rsvpField label,
+  .rsvpGuestField label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 5px 9px;
+    margin-bottom: 8px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cinzel), serif;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+  }
+  
+  .rsvpField label span {
+    color: var(--w4-ink);
+    font-family: var(--font-cormorant), serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    opacity: 0.7;
+  }
+  
+  .rsvpField input,
+  .rsvpField textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 2px;
+    border: 0;
+    border-bottom: 1px solid rgb(151 113 65 / 55%);
+    border-radius: 0;
+    background: transparent;
+    color: var(--w4-ink);
+    font-family: var(--font-cormorant), serif;
+    font-size: 18px;
+    line-height: 1.5;
+    transition: border-color 200ms ease;
+  }
+  
+  .rsvpField input::placeholder,
+  .rsvpField textarea::placeholder {
+    color: var(--w4-ink);
+    opacity: 0.45;
+  }
+  
+  .rsvpField input:focus,
+  .rsvpField textarea:focus {
+    border-bottom-color: var(--w4-maroon);
+    outline: none;
+  }
+  
+  .rsvpField textarea {
+    min-height: 85px;
+    resize: vertical;
+  }
+  
+  .rsvpGuestField {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding: 15px 0;
+    border-top: 1px solid rgb(151 113 65 / 30%);
+    border-bottom: 1px solid rgb(151 113 65 / 30%);
+  }
+  
+  .rsvpGuestField label {
+    margin: 0 0 4px;
+  }
+  
+  .rsvpGuestField p {
+    margin: 0;
+    color: var(--w4-ink);
+    font-family: var(--font-cormorant), serif;
+    font-size: 15px;
+    opacity: 0.75;
+  }
+  
+  .rsvpGuestStepper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .rsvpGuestStepper button {
+    display: grid;
+    place-items: center;
+    width: 31px;
+    height: 31px;
+    border: 1px solid var(--w4-gold);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--w4-maroon);
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .rsvpGuestStepper button:disabled {
+    cursor: not-allowed;
+    opacity: 0.35;
+  }
+  
+  .rsvpGuestCount {
+    min-width: 16px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  /* Solid maroon action: the only filled element */
+  
+  .rsvpSubmit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    min-height: 54px;
+    box-sizing: border-box;
+    margin-top: 12px;
+    padding: 13px 17px;
+    border: 1px solid var(--w4-maroon);
+    border-radius: 0;
+    background: var(--w4-maroon);
+    color: var(--w4-cream);
+    font-family: var(--font-cinzel), serif;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-align: left;
+    cursor: pointer;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+  
+  .rsvpSubmitArrow {
+    display: grid;
+    place-items: center;
+    width: 27px;
+    height: 27px;
+    border: 1px solid rgb(255 255 255 / 45%);
+    border-radius: 50%;
+    font-size: 16px;
+    transition: transform 200ms ease;
+  }
+  
+  .rsvpSubmit:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+  
+  .rsvpPrivacyNote {
+    margin: 13px 0 0;
+    color: var(--w4-ink);
+    font-family: var(--font-cormorant), serif;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0.75;
+  }
+  
+  .rsvpError {
+    margin: 0 0 14px;
+    color: var(--w4-vermilion);
+    font-family: var(--font-cormorant), serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Confirmation */
+  
+  .rsvpConfirmation {
+    padding: 28px 8px 20px;
+    animation: rsvpReveal 400ms ease both;
+  }
+  
+  .rsvpConfirmationIcon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 19px;
+    border: 1px solid var(--w4-gold);
+    border-radius: 50%;
+    color: var(--w4-vermilion);
+    font-size: 25px;
+  }
+  
+  .rsvpConfirmationEyebrow {
+    margin: 0 0 12px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cinzel), serif;
+    font-size: 8px;
+    letter-spacing: 0.16em;
+  }
+  
+  .rsvpConfirmation h3 {
+    margin: 0 0 12px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: clamp(30px, 4vw, 39px);
+    font-weight: 500;
+    line-height: 1.15;
+  }
+  
+  .rsvpConfirmation > p:not(.rsvpConfirmationEyebrow) {
+    max-width: 390px;
+    margin: 0 auto;
+    color: var(--w4-ink);
+    font-family: var(--font-cormorant), serif;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  .rsvpConfirmationFlourish {
+    display: inline-block;
+    margin-top: 21px;
+    color: var(--w4-gold);
+    font-size: 30px;
+  }
+  
+  .rsvpEditReply {
+    display: block;
+    margin: 18px auto 0;
+    padding: 9px 12px;
+    border: 0;
+    border-bottom: 1px solid var(--w4-gold);
+    border-radius: 0;
+    background: transparent;
+    color: var(--w4-maroon);
+    font-family: var(--font-cinzel), serif;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+  }
+  
+  .rsvpBottomOrnament {
+    gap: 12px;
+    margin-top: 34px;
+  }
+  
+  .rsvpBottomOrnament span {
+    color: var(--w4-maroon);
+    font-family: var(--font-cinzel), serif;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+  }
+  
+  .rsvpBottomOrnament i {
+    color: var(--w4-gold);
+    font-size: 14px;
+    font-style: normal;
+  }
+  
+  @keyframes rsvpReveal {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .rsvpChoice:hover .rsvpChoiceIcon {
+      border-color: var(--w4-maroon);
+    }
+  
+    .rsvpSubmit:hover:not(:disabled) {
+      background: transparent;
+      color: var(--w4-maroon);
+    }
+  
+    .rsvpSubmit:hover:not(:disabled) .rsvpSubmitArrow {
+      border-color: var(--w4-maroon);
+      transform: translate(2px, -2px);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .rsvpSection {
+      width: 100%;
+      margin: 18px auto 30px;
+      padding: 36px 20px;
+    }
+  
+    .rsvpOuterFrame,
+    .rsvpInner {
+      padding: 0;
+    }
+  
+    .rsvpTitle {
+      font-size: clamp(43px, 11vw, 55px);
+    }
+  
+    .rsvpIntroduction {
+      margin-top: 18px;
+      font-size: 18px;
+    }
+  
+    .rsvpEventDetails {
+      gap: 6px;
+      font-size: 8px;
+    }
+  
+    .rsvpEventDetails {
+      margin-bottom: 28px;
+    }
+  
+    .rsvpChoices {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+    }
+  
+    .rsvpChoice {
+      display: grid;
+      grid-template-columns: 35px minmax(0, 1fr) 22px;
+      grid-template-rows: auto auto;
+      align-items: center;
+      min-height: 82px;
+      gap: 3px 10px;
+      padding: 12px 4px;
+      text-align: left;
+    }
+  
+    .rsvpChoiceIcon {
+      grid-column: 1;
+      grid-row: 1 / 3;
+      width: 31px;
+      height: 31px;
+      margin: 0;
+      font-size: 19px;
+    }
+  
+    .rsvpChoiceTitle {
+      grid-column: 2;
+      grid-row: 1;
+      font-size: 21px;
+    }
+  
+    .rsvpChoiceCaption {
+      grid-column: 2;
+      grid-row: 2;
+      margin-top: 0;
+      font-size: 15px;
+    }
+  
+    .rsvpChoiceMark {
+      top: 50%;
+      right: 2px;
+      grid-column: 3;
+      grid-row: 1 / 3;
+      transform: translateY(-50%);
+    }
+  
+    .rsvpDetails {
+      margin-top: 27px;
+      padding-top: 22px;
+    }
+  
+    .rsvpRevealHeading {
+      gap: 11px;
+    }
+  
+    .rsvpRevealNumber {
+      flex-basis: 35px;
+      width: 35px;
+      height: 35px;
+    }
+  
+    .rsvpRevealEyebrow {
+      font-size: 7px;
+      letter-spacing: 0.08em;
+    }
+  
+    .rsvpRevealHeading h3 {
+      font-size: 24px;
+    }
+  
+    .rsvpField input,
+    .rsvpField textarea {
+      font-size: 16px;
+    }
+  
+    .rsvpBottomOrnament {
+      margin-top: 28px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .rsvpChoice,
+    .rsvpChoiceIcon,
+    .rsvpChoiceMark,
+    .rsvpSubmit,
+    .rsvpSubmitArrow {
+      transition: none;
+    }
+  
+    .rsvpDetails,
+    .rsvpConfirmation {
+      animation: none;
+    }
+  }
+
+  
+/* =========================================
+   RSVP — ROMANTIC STATIONERY
+   Open, delicate, and understated
+   ========================================= */
+
+.rsvpSection {
+  width: 100%;
+  max-width: 1240px;
+  box-sizing: border-box;
+  margin: 24px auto 38px;
+  padding: clamp(32px, 5vw, 60px) clamp(20px, 5vw, 64px);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--w4-ink);
+}
+
+.rsvpInner {
+  width: 100%;
+  max-width: 590px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.rsvpTopOrnament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.rsvpTopOrnament > span:first-child,
+.rsvpTopOrnament > span:last-child {
+  width: 30px;
+  height: 1px;
+  background: var(--w4-gold);
+  opacity: 0.8;
+}
+
+.rsvpOrnamentSymbol {
+  color: var(--w4-vermilion);
+  font-family: var(--font-cormorant), serif;
+  font-size: 20px;
+}
+
+.rsvpEyebrow {
+  margin: 15px 0 12px;
+  color: var(--w4-maroon);
+  font-family: var(--font-cinzel), serif;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+}
+
+.rsvpTitle {
+  margin: 0;
+  color: var(--w4-maroon);
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(44px, 5.2vw, 62px);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+}
+
+.rsvpTitle span {
+  color: var(--w4-vermilion);
+  font-family: var(--font-allura), cursive;
+  font-size: 1.14em;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.rsvpIntroduction {
+  max-width: 380px;
+  margin: 20px auto 15px;
+  color: var(--w4-ink);
+  font-family: var(--font-cormorant), serif;
+  font-size: 19px;
+  line-height: 1.55;
+}
+
+.rsvpEventDetails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  color: var(--w4-maroon);
+  font-family: var(--font-cinzel), serif;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+}
+
+.rsvpDetailDivider {
+  color: var(--w4-gold);
+}
+
+.rsvpInvitationDivider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 18px 0 28px;
+  color: var(--w4-gold);
+  font-size: 15px;
+}
+
+.rsvpInvitationDivider span {
+  display: grid;
+  place-items: center;
+}
+
+/* The question and choices */
+
+.rsvpForm {
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.rsvpChoiceFieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.rsvpQuestion {
+  width: 100%;
+  margin: 0 0 17px;
+  color: var(--w4-maroon);
+  font-family: var(--font-cormorant), serif;
+  font-size: 27px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.rsvpChoices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 3vw, 35px);
+}
+
+.rsvpChoice {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  min-width: 0;
+  min-height: 94px;
+  padding: 13px 4px 15px;
+  border: 0;
+  border-bottom: 1px solid rgb(151 113 65 / 40%);
+  border-radius: 0;
+  background: transparent;
+  color: var(--w4-ink);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 200ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.rsvpChoice::before {
+  display: none;
+}
+
+.rsvpChoiceIcon {
+  flex: 0 0 auto;
+  padding-top: 1px;
+  color: var(--w4-gold);
+  font-family: var(--font-cormorant), serif;
+  font-size: 22px;
+  line-height: 1.2;
+  transition: color 200ms ease;
+}
+
+.rsvpChoiceText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.rsvpChoiceTitle {
+  color: var(--w4-maroon);
+  font-family: var(--font-cormorant), serif;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.rsvpChoiceCaption {
+  color: var(--w4-ink);
+  font-family: var(--font-cormorant), serif;
+  font-size: 15px;
+  line-height: 1.35;
+  opacity: 0.78;
+}
+
+.rsvpChoiceMark {
+  display: grid;
+  flex: 0 0 18px;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  border: 1px solid rgb(151 113 65 / 45%);
+  border-radius: 50%;
+  color: transparent;
+  font-size: 10px;
+  transition:
+    color 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+.rsvpChoiceSelected {
+  border-bottom-color: var(--w4-maroon);
+}
+
+.rsvpChoiceSelected .rsvpChoiceIcon {
+  color: var(--w4-vermilion);
+}
+
+.rsvpChoiceSelected .rsvpChoiceMark {
+  border-color: var(--w4-maroon);
+  background: var(--w4-maroon);
+  color: var(--w4-cream);
+}
+
+.rsvpChoice:focus-visible,
+.rsvpSubmit:focus-visible,
+.rsvpEditReply:focus-visible {
+  outline: 2px solid var(--w4-gold);
+  outline-offset: 4px;
+}
+
+/* Gentle reveal, without a form card */
+
+.rsvpDetails {
+  max-width: 460px;
+  margin: 28px auto 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  animation: rsvpReveal 350ms ease both;
+}
+
+.rsvpFormHeading {
+  margin: 0 0 25px;
+  text-align: center;
+}
+
+.rsvpFormFlourish {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--w4-gold);
+  font-family: var(--font-cormorant), serif;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.rsvpFormHeading h3 {
+  margin: 0;
+  color: var(--w4-maroon);
+  font-family: var(--font-allura), cursive;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.rsvpFormHeading p {
+  max-width: 350px;
+  margin: 5px auto 0;
+  color: var(--w4-ink);
+  font-family: var(--font-cormorant), serif;
+  font-size: 16px;
+  line-height: 1.45;
+  opacity: 0.8;
+}
+
+/* Writing lines instead of boxed inputs */
+
+.rsvpField {
+  margin: 0 0 23px;
+  text-align: left;
+}
+
+.rsvpField label {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px 9px;
+  margin-bottom: 4px;
+  color: var(--w4-maroon);
+  font-family: var(--font-cormorant), serif;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.rsvpField label span {
+  color: var(--w4-ink);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  opacity: 0.65;
+}
+
+.rsvpField input,
+.rsvpField textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 0 11px;
+  border: 0;
+  border-bottom: 1px solid rgb(151 113 65 / 45%);
+  border-radius: 0;
+  background: transparent;
+  color: var(--w4-ink);
+  font-family: var(--font-cormorant), serif;
+  font-size: 17px;
+  line-height: 1.55;
+  transition: border-color 200ms ease;
+}
+
+.rsvpField input::placeholder,
+.rsvpField textarea::placeholder {
+  color: var(--w4-ink);
+  font-style: italic;
+  opacity: 0.48;
+}
+
+.rsvpField input:focus,
+.rsvpField textarea:focus {
+  border-bottom-color: var(--w4-maroon);
+  outline: none;
+}
+
+.rsvpField textarea {
+  min-height: 83px;
+  resize: vertical;
+}
+
+.rsvpError {
+  margin: 0 0 14px;
+  color: var(--w4-vermilion);
+  font-family: var(--font-cormorant), serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Understated invitation-style action */
+
+.rsvpSubmit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 43px;
+  margin: 27px auto 0;
+  padding: 8px 0;
+  border: 0;
+  border-bottom: 1px solid var(--w4-maroon);
+  border-radius: 0;
+  background: transparent;
+  color: var(--w4-maroon);
+  font-family: var(--font-cinzel), serif;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition:
+    color 200ms ease,
+    border-color 200ms ease;
+}
+
+.rsvpSubmit > span:last-child {
+  color: var(--w4-gold);
+  font-size: 16px;
+  transition: transform 200ms ease;
+}
+
+.rsvpSubmit:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.rsvpPrivacyNote {
+  display: none;
+}
+
+/* Confirmation */
+
+.rsvpConfirmation {
+  max-width: 420px;
+  margin: 28px auto 0;
+  padding: 12px 0;
+  animation: rsvpReveal 350ms ease both;
+}
+
+.rsvpConfirmationIcon {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--w4-vermilion);
+  font-size: 29px;
+}
+
+.rsvpConfirmationEyebrow {
+  margin: 0 0 12px;
+  color: var(--w4-maroon);
+  font-family: var(--font-cinzel), serif;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+}
+
+.rsvpConfirmation h3 {
+  margin: 0;
+  color: var(--w4-maroon);
+  font-family: var(--font-allura), cursive;
+  font-size: 37px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.rsvpConfirmationText {
+  margin: 10px auto 0;
+  color: var(--w4-ink);
+  font-family: var(--font-cormorant), serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.rsvpConfirmationFlourish {
+  display: block;
+  margin-top: 18px;
+  color: var(--w4-maroon);
+  font-family: var(--font-allura), cursive;
+  font-size: 25px;
+}
+
+.rsvpEditReply {
+  display: block;
+  margin: 18px auto 0;
+  padding: 7px 0;
+  border: 0;
+  border-bottom: 1px solid var(--w4-gold);
+  background: transparent;
+  color: var(--w4-maroon);
+  font-family: var(--font-cormorant), serif;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.rsvpBottomOrnament {
+  margin-top: 30px;
+  color: var(--w4-gold);
+  font-size: 16px;
+}
+
+.rsvpBottomOrnament span {
+  display: none;
+}
+
+.rsvpBottomOrnament i {
+  font-style: normal;
+}
+
+@keyframes rsvpReveal {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rsvpChoice:hover {
+    border-bottom-color: var(--w4-maroon);
+  }
+
+  .rsvpSubmit:hover:not(:disabled) {
+    border-bottom-color: var(--w4-vermilion);
+    color: var(--w4-vermilion);
+  }
+
+  .rsvpSubmit:hover:not(:disabled) > span:last-child {
+    transform: translate(2px, -2px);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+  .rsvpSection {
+    margin: 16px auto 28px;
+    padding: 32px 22px;
+  }
+
+  .rsvpTitle {
+    font-size: clamp(43px, 11vw, 54px);
+  }
+
+  .rsvpIntroduction {
+    margin-top: 17px;
+    font-size: 18px;
+  }
+
+  .rsvpEventDetails {
+    gap: 6px;
+    margin-bottom: 18px;
+    font-size: 8px;
+  }
+
+  .rsvpInvitationDivider {
+    margin: 16px 0 24px;
+  }
+
+  .rsvpQuestion {
+    font-size: 25px;
+  }
+
+  .rsvpChoices {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 5px;
+  }
+
+  .rsvpChoice {
+    min-height: 78px;
+    padding: 12px 3px;
+    gap: 12px;
+  }
+
+  .rsvpChoiceIcon {
+    font-size: 21px;
+  }
+
+  .rsvpChoiceTitle {
+    font-size: 21px;
+  }
+
+  .rsvpChoiceCaption {
+    font-size: 15px;
+  }
+
+  .rsvpDetails {
+    margin-top: 25px;
+  }
+
+  .rsvpFormHeading {
+    margin-bottom: 22px;
+  }
+
+  .rsvpFormHeading h3 {
+    font-size: 33px;
+  }
+
+  .rsvpField {
+    margin-bottom: 20px;
+  }
+
+  .rsvpField input,
+  .rsvpField textarea {
+    font-size: 16px;
+  }
+
+  .rsvpSubmit {
+    margin-top: 23px;
+  }
+
+  .rsvpBottomOrnament {
+    margin-top: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rsvpChoice,
+  .rsvpChoiceIcon,
+  .rsvpChoiceMark,
+  .rsvpSubmit,
+  .rsvpSubmit > span:last-child {
+    transition: none;
+  }
+
+  .rsvpDetails,
+  .rsvpConfirmation {
+    animation: none;
+  }
+}
+
+
+/* =========================================
+   RSVP — FRAMED WEDDING INVITATION
+   Designed to follow the venue section
+   ========================================= */
+
+   .rsvpSection {
+    position: relative;
+    isolation: isolate;
+    width: calc(100% - 40px);
+    max-width: 1240px;
+    box-sizing: border-box;
+    margin: 30px auto 44px;
+    padding: clamp(22px, 4vw, 48px);
+    background: var(--w4-cream);
+    border: 1px solid var(--w4-gold);
+    box-shadow: 0 12px 36px rgb(73 29 40 / 10%);
+    color: var(--w4-ink);
+  }
+  
+  .rsvpInner {
+    position: relative;
+    width: 100%;
+    max-width: 660px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: clamp(20px, 3vw, 34px) clamp(8px, 2vw, 20px);
+    border: 1px solid rgb(151 113 65 / 30%);
+    text-align: center;
+  }
+  
+  /* Four quiet ornamental corners */
+  
+  .rsvpSection::before,
+  .rsvpSection::after {
+    position: absolute;
+    z-index: 2;
+    width: 25px;
+    height: 25px;
+    border-color: var(--w4-gold);
+    border-style: solid;
+    content: "";
+    pointer-events: none;
+  }
+  
+  .rsvpSection::before {
+    top: 8px;
+    left: 8px;
+    border-width: 1px 0 0 1px;
+  }
+  
+  .rsvpSection::after {
+    right: 8px;
+    bottom: 8px;
+    border-width: 0 1px 1px 0;
+  }
+  
+  .rsvpTopOrnament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .rsvpTopOrnament > span:first-child,
+  .rsvpTopOrnament > span:last-child {
+    width: 32px;
+    height: 1px;
+    background: var(--w4-gold);
+  }
+  
+  .rsvpOrnamentSymbol {
+    color: var(--w4-vermilion);
+    font-family: var(--font-cormorant), serif;
+    font-size: 20px;
+  }
+  
+  .rsvpEyebrow {
+    margin: 15px 0 12px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cinzel), serif;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+  }
+  
+  .rsvpTitle {
+    margin: 0;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: clamp(44px, 5.2vw, 62px);
+    font-weight: 500;
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+  }
+  
+  .rsvpTitle span {
+    color: var(--w4-vermilion);
+    font-family: var(--font-allura), cursive;
+    font-size: 1.14em;
+    font-weight: 400;
+  }
+  
+  .rsvpIntroduction {
+    max-width: 390px;
+    margin: 20px auto 15px;
+    color: var(--w4-ink);
+    font-family: var(--font-cormorant), serif;
+    font-size: 19px;
+    line-height: 1.55;
+  }
+  
+  .rsvpEventDetails {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cinzel), serif;
+    font-size: 8px;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+  }
+  
+  .rsvpDetailDivider {
+    color: var(--w4-gold);
+  }
+  
+  .rsvpInvitationDivider {
+    display: flex;
+    justify-content: center;
+    margin: 18px 0 28px;
+    color: var(--w4-gold);
+    font-size: 15px;
+  }
+  
+  /* Response choices */
+  
+  .rsvpForm {
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .rsvpChoiceFieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  
+  .rsvpQuestion {
+    width: 100%;
+    margin: 0 0 17px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: 27px;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .rsvpChoices {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(14px, 3vw, 35px);
+  }
+  
+  .rsvpChoice {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    min-width: 0;
+    min-height: 94px;
+    padding: 13px 4px 15px;
+    border: 0;
+    border-bottom: 1px solid rgb(151 113 65 / 40%);
+    border-radius: 0;
+    background: transparent;
+    color: var(--w4-ink);
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 200ms ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .rsvpChoiceIcon {
+    flex: 0 0 auto;
+    padding-top: 1px;
+    color: var(--w4-gold);
+    font-family: var(--font-cormorant), serif;
+    font-size: 22px;
+    line-height: 1.2;
+  }
+  
+  .rsvpChoiceText {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+  }
+  
+  .rsvpChoiceTitle {
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.15;
+  }
+  
+  .rsvpChoiceCaption {
+    color: var(--w4-ink);
+    font-family: var(--font-cormorant), serif;
+    font-size: 15px;
+    line-height: 1.35;
+    opacity: 0.78;
+  }
+  
+  .rsvpChoiceMark {
+    display: grid;
+    flex: 0 0 18px;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    border: 1px solid rgb(151 113 65 / 45%);
+    border-radius: 50%;
+    color: transparent;
+    font-size: 10px;
+    transition:
+      color 200ms ease,
+      background-color 200ms ease,
+      border-color 200ms ease;
+  }
+  
+  .rsvpChoiceSelected {
+    border-bottom-color: var(--w4-maroon);
+  }
+  
+  .rsvpChoiceSelected .rsvpChoiceIcon {
+    color: var(--w4-vermilion);
+  }
+  
+  .rsvpChoiceSelected .rsvpChoiceMark {
+    border-color: var(--w4-maroon);
+    background: var(--w4-maroon);
+    color: var(--w4-cream);
+  }
+  
+  .rsvpChoice:focus-visible,
+  .rsvpSubmit:focus-visible,
+  .rsvpEditReply:focus-visible {
+    outline: 2px solid var(--w4-gold);
+    outline-offset: 4px;
+  }
+  
+  /* Revealed note-writing area */
+  
+  .rsvpDetails {
+    max-width: 460px;
+    margin: 28px auto 0;
+    padding: 22px 0 0;
+    border-top: 1px solid rgb(151 113 65 / 45%);
+    background: transparent;
+    text-align: left;
+    animation: rsvpReveal 350ms ease both;
+  }
+  
+  .rsvpFormHeading {
+    margin: 0 0 25px;
+    text-align: center;
+  }
+  
+  .rsvpFormFlourish {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--w4-gold);
+    font-family: var(--font-cormorant), serif;
+    font-size: 25px;
+    line-height: 1;
+  }
+  
+  .rsvpFormHeading h3 {
+    margin: 0;
+    color: var(--w4-maroon);
+    font-family: var(--font-allura), cursive;
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+  
+  .rsvpFormHeading p {
+    max-width: 350px;
+    margin: 5px auto 0;
+    color: var(--w4-ink);
+    font-family: var(--font-cormorant), serif;
+    font-size: 16px;
+    line-height: 1.45;
+    opacity: 0.8;
+  }
+  
+  .rsvpField {
+    margin: 0 0 23px;
+    text-align: left;
+  }
+  
+  .rsvpField label {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 5px 9px;
+    margin-bottom: 4px;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: 19px;
+    font-weight: 500;
+  }
+  
+  .rsvpField label span {
+    color: var(--w4-ink);
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    opacity: 0.65;
+  }
+  
+  .rsvpField input,
+  .rsvpField textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0 11px;
+    border: 0;
+    border-bottom: 1px solid rgb(151 113 65 / 45%);
+    border-radius: 0;
+    background: transparent;
+    color: var(--w4-ink);
+    font-family: var(--font-cormorant), serif;
+    font-size: 17px;
+    line-height: 1.55;
+    transition: border-color 200ms ease;
+  }
+  
+  .rsvpField input::placeholder,
+  .rsvpField textarea::placeholder {
+    color: var(--w4-ink);
+    font-style: italic;
+    opacity: 0.48;
+  }
+  
+  .rsvpField input:focus,
+  .rsvpField textarea:focus {
+    border-bottom-color: var(--w4-maroon);
+    outline: none;
+  }
+  
+  .rsvpField textarea {
+    min-height: 83px;
+    resize: vertical;
+  }
+  
+  .rsvpError {
+    margin: 0 0 14px;
+    color: var(--w4-vermilion);
+    font-family: var(--font-cormorant), serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .rsvpSubmit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 43px;
+    margin: 27px auto 0;
+    padding: 8px 0;
+    border: 0;
+    border-bottom: 1px solid var(--w4-maroon);
+    border-radius: 0;
+    background: transparent;
+    color: var(--w4-maroon);
+    font-family: var(--font-cinzel), serif;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: color 200ms ease;
+  }
+  
+  .rsvpSubmit > span:last-child {
+    color: var(--w4-gold);
+    font-size: 16px;
+    transition: transform 200ms ease;
+  }
+  
+  .rsvpSubmit:disabled {
+    cursor: wait;
+    opacity: 0.6;
+  }
+  
+  /* Confirmation */
+  
+  .rsvpConfirmation {
+    max-width: 420px;
+    margin: 28px auto 0;
+    padding: 20px 0;
+    border-top: 1px solid rgb(151 113 65 / 45%);
+    animation: rsvpReveal 350ms ease both;
+  }
+  
+  .rsvpConfirmationIcon {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--w4-vermilion);
+    font-size: 29px;
+  }
+  
+  .rsvpConfirmation h3 {
+    margin: 0;
+    color: var(--w4-maroon);
+    font-family: var(--font-allura), cursive;
+    font-size: 37px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+  
+  .rsvpConfirmationText {
+    margin: 10px auto 0;
+    color: var(--w4-ink);
+    font-family: var(--font-cormorant), serif;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+  
+  .rsvpConfirmationFlourish {
+    display: block;
+    margin-top: 18px;
+    color: var(--w4-maroon);
+    font-family: var(--font-allura), cursive;
+    font-size: 25px;
+  }
+  
+  .rsvpEditReply {
+    display: block;
+    margin: 18px auto 0;
+    padding: 7px 0;
+    border: 0;
+    border-bottom: 1px solid var(--w4-gold);
+    background: transparent;
+    color: var(--w4-maroon);
+    font-family: var(--font-cormorant), serif;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  
+  .rsvpBottomOrnament {
+    margin-top: 30px;
+    color: var(--w4-gold);
+    font-size: 16px;
+  }
+  
+  .rsvpBottomOrnament span {
+    display: none;
+  }
+  
+  .rsvpBottomOrnament i {
+    font-style: normal;
+  }
+  
+  @keyframes rsvpReveal {
+    from {
+      opacity: 0;
+      transform: translateY(5px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .rsvpChoice:hover {
+      border-bottom-color: var(--w4-maroon);
+    }
+  
+    .rsvpSubmit:hover:not(:disabled) {
+      color: var(--w4-vermilion);
+    }
+  
+    .rsvpSubmit:hover:not(:disabled) > span:last-child {
+      transform: translate(2px, -2px);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .rsvpSection {
+      width: calc(100% - 24px);
+      margin: 20px auto 30px;
+      padding: 18px;
+    }
+  
+    .rsvpInner {
+      padding: 20px 8px;
+    }
+  
+    .rsvpSection::before,
+    .rsvpSection::after {
+      width: 17px;
+      height: 17px;
+    }
+  
+    .rsvpTitle {
+      font-size: clamp(43px, 11vw, 54px);
+    }
+  
+    .rsvpIntroduction {
+      margin-top: 17px;
+      font-size: 18px;
+    }
+  
+    .rsvpEventDetails {
+      gap: 6px;
+      margin-bottom: 18px;
+      font-size: 8px;
+    }
+  
+    .rsvpInvitationDivider {
+      margin: 16px 0 24px;
+    }
+  
+    .rsvpQuestion {
+      font-size: 25px;
+    }
+  
+    .rsvpChoices {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 5px;
+    }
+  
+    .rsvpChoice {
+      min-height: 78px;
+      padding: 12px 3px;
+      gap: 12px;
+    }
+  
+    .rsvpChoiceTitle {
+      font-size: 21px;
+    }
+  
+    .rsvpChoiceCaption {
+      font-size: 15px;
+    }
+  
+    .rsvpDetails {
+      margin-top: 25px;
+      padding-top: 20px;
+    }
+  
+    .rsvpFormHeading {
+      margin-bottom: 22px;
+    }
+  
+    .rsvpFormHeading h3 {
+      font-size: 33px;
+    }
+  
+    .rsvpField {
+      margin-bottom: 20px;
+    }
+  
+    .rsvpField input,
+    .rsvpField textarea {
+      font-size: 16px;
+    }
+  
+    .rsvpSubmit {
+      margin-top: 23px;
+    }
+  
+    .rsvpBottomOrnament {
+      margin-top: 24px;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .rsvpChoice,
+    .rsvpChoiceIcon,
+    .rsvpChoiceMark,
+    .rsvpSubmit,
+    .rsvpSubmit > span:last-child {
+      transition: none;
+    }
+  
+    .rsvpDetails,
+    .rsvpConfirmation {
+      animation: none;
+    }
+  }
+
+  /* =========================================
+   TEMPLATE 4 — REFINED VENUE SECTION
+========================================= */
+
+.venueSection {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1240px;
+  margin: 12px auto 18px;
+  padding: 30px 32px 24px;
+  color: var(--w4-ink);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.venueSection::before,
+.venueSection::after {
+  content: none;
+}
+
+.venueInner {
+  width: 100%;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.venueHeader {
+  margin: 0 auto 25px;
+  text-align: center;
+}
+
+.venueEyebrow {
+  margin: 0 0 8px;
+  color: var(--w4-maroon);
+  font-family: var(--font-cinzel), serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+}
+
+.venueTitle {
+  margin: 0;
+  color: var(--w4-maroon);
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(35px, 4vw, 46px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.venueTitle span {
+  color: var(--w4-vermilion);
+  font-family: var(--font-allura), cursive;
+  font-size: 1.18em;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.venueIntroduction {
+  margin: 8px auto 0;
+  color: var(--w4-ink);
+  font-family: var(--font-cormorant), serif;
+  font-size: 17px;
+  line-height: 1.45;
+  opacity: 0.75;
+}
+
+/* Two clean venue columns */
+
+.venueList {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.venueItem {
+  min-width: 0;
+  padding: 20px 34px 18px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.venueItem + .venueItem {
+  border-left: 1px solid rgb(164 125 65 / 45%);
+}
+
+.venueItemLabel {
+  margin: 0 0 10px;
+  color: var(--w4-maroon);
+  font-family: var(--font-cinzel), serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+}
+
+.venueName {
+  margin: 0;
+  color: var(--w4-ink);
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(24px, 2.5vw, 31px);
+  font-weight: 500;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.venueAddress {
+  margin: 5px 0 0;
+  color: var(--w4-ink);
+  font-family: var(--font-cormorant), serif;
+  font-size: 15px;
+  line-height: 1.45;
+  opacity: 0.7;
+}
+
+/* Date and time */
+
+.venueDetails {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 18px;
+  margin: 17px 0 0;
+  padding-top: 13px;
+  border-top: 1px solid rgb(164 125 65 / 30%);
+}
+
+.venueDetail {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.venueDetailLabel {
+  color: var(--w4-maroon);
+  font-family: var(--font-cinzel), serif;
+  font-size: 8px;
+  letter-spacing: 0.15em;
+}
+
+.venueDetailValue {
+  margin: 0;
+  color: var(--w4-ink);
+  font-family: var(--font-cormorant), serif;
+  font-size: 17px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* Understated map link */
+
+.venueMapLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 0 0 4px;
+  color: var(--w4-maroon);
+  font-family: var(--font-cinzel), serif;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--w4-gold);
+  transition: color 200ms ease;
+}
+
+.venueMapLink span {
+  font-size: 13px;
+  transition: transform 200ms ease;
+}
+
+.venueMapLink:hover {
+  color: var(--w4-vermilion);
+}
+
+.venueMapLink:hover span {
+  transform: translate(2px, -2px);
+}
+
+/* Remove decorative elements from the previous design */
+
+.venuePanel,
+.venuePanelHeading,
+.venuePanelSymbol,
+.venueHeadingOrnament,
+.venueDetailsDivider,
+.venueConnector,
+.venueJourneyLine,
+.venuePanelCorner,
+.venueMapArrow,
+.venueMapLinkLine {
+  display: none;
+}
+
+.venueFooter {
+  display: none;
+}
+
+.venueClosing {
+  margin: 21px 0 0;
+  color: var(--w4-maroon);
+  font-family: var(--font-allura), cursive;
+  font-size: 23px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Tablet */
+
+@media (max-width: 760px) {
+  .venueSection {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  .venueItem {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  .venueDetails {
+    gap: 12px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 560px) {
+  .venueSection {
+    margin: 8px auto 12px;
+    padding: 25px 20px 21px;
+  }
+
+  .venueHeader {
+    margin-bottom: 18px;
+  }
+
+  .venueEyebrow {
+    font-size: 8px;
+    letter-spacing: 0.16em;
+  }
+
+  .venueTitle {
+    font-size: 37px;
+  }
+
+  .venueIntroduction {
+    max-width: 300px;
+    font-size: 16px;
+  }
+
+  .venueList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .venueItem {
+    padding: 18px 5px 20px;
+  }
+
+  .venueItem + .venueItem {
+    border-top: 1px solid rgb(164 125 65 / 45%);
+    border-left: none;
+  }
+
+  .venueName {
+    font-size: 28px;
+  }
+
+  .venueDetails {
+    max-width: 340px;
+    margin-top: 13px;
+    padding-top: 11px;
+  }
+
+  .venueClosing {
+    margin-top: 16px;
+    font-size: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .venueMapLink,
+  .venueMapLink span {
+    transition: none;
+  }
+}
+
+/* =========================================
+   COUPLE STORY — COMPACT PARENT COUPLES
+========================================= */
+
+.familyGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.familyGroupLabel {
+  margin: 0 0 12px;
+  color: var(--w4-maroon);
+  font-family: var(--font-cinzel), serif;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.familyGroupLabel span {
+  display: none;
+}
+
+.familyPortraits {
+  display: none;
+}
+
+.familyPortrait {
+  display: flex;
+  width: 100%;
+  max-width: 190px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.familyPortraitFrame {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 174px;
+  aspect-ratio: 4 / 3;
+  padding: 5px;
+  overflow: hidden;
+  background: rgb(255 255 255 / 30%);
+  border: 1px solid rgb(164 125 65 / 65%);
+}
+
+.familyPortraitImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.familyPortraitName {
+  margin: 10px 0 0;
+  color: var(--w4-maroon);
+  font-family: var(--font-cormorant), serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.familyPortraitRole {
+  margin: 3px 0 0;
+  color: var(--w4-ink);
+  font-family: var(--font-cormorant), serif;
+  font-size: 14px;
+  line-height: 1.3;
+  opacity: 0.72;
+}
+
+@media (max-width: 760px) {
+  .familyGroup {
+    margin-top: 14px;
+  }
+
+  .familyPortrait {
+    max-width: 170px;
+  }
+
+  .familyPortraitFrame {
+    max-width: 158px;
+  }
+}
+
+@media (max-width: 560px) {
+  .familyGroup {
+    margin-top: 12px;
+  }
+
+  .familyPortrait {
+    max-width: 200px;
+  }
+
+  .familyPortraitFrame {
+    max-width: 170px;
+  }
+
+  .familyPortraitName {
+    font-size: 17px;
+  }
+}
+
+/* =========================================
+   TEMPLATE 4 — WEDDING FOOTER
+========================================= */
+
+.weddingFooter {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  color: var(--w4-cream);
+  background: var(--w4-maroon);
+}
+
+.weddingFooter::before,
+.weddingFooter::after {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  content: "";
+  border: 1px solid rgb(220 190 127 / 12%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.weddingFooter::before {
+  top: -165px;
+  left: -100px;
+  box-shadow:
+    0 0 0 14px rgb(220 190 127 / 3%),
+    0 0 0 30px rgb(220 190 127 / 3%);
+}
+
+.weddingFooter::after {
+  right: -120px;
+  bottom: -175px;
+  box-shadow:
+    0 0 0 14px rgb(220 190 127 / 3%),
+    0 0 0 30px rgb(220 190 127 / 3%);
+}
+
+.weddingFooterInner {
+  position: relative;
+  z-index: 1;
+  width: calc(100% - 48px);
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 35px 0 0;
+  text-align: center;
+}
+
+.weddingFooterOrnament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin-bottom: 12px;
+  color: var(--w4-gold);
+}
+
+.weddingFooterOrnament > span:not(.weddingFooterFlower) {
+  width: 42px;
+  height: 1px;
+  background: var(--w4-gold);
+  opacity: 0.65;
+}
+
+.weddingFooterFlower {
+  font-size: 17px;
+}
+
+.weddingFooterEyebrow {
+  margin: 0 0 7px;
+  color: var(--w4-gold);
+  font-family: var(--font-cinzel), serif;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+}
+
+.weddingFooterNames {
+  margin: 0;
+  color: var(--w4-cream);
+  font-family: var(--font-allura), cursive;
+  font-size: clamp(40px, 5vw, 57px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.weddingFooterMessage {
+  margin: 5px 0 0;
+  color: rgb(255 255 255 / 78%);
+  font-family: var(--font-cormorant), serif;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.weddingFooterDate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin-top: 15px;
+  color: var(--w4-gold);
+  font-family: var(--font-cinzel), serif;
+  font-size: 9px;
+  letter-spacing: 0.13em;
+}
+
+.weddingFooterDate span:first-child,
+.weddingFooterDate span:last-child {
+  font-size: 11px;
+}
+
+/* Bottom strip */
+
+.weddingFooterBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 29px;
+  padding: 13px 0;
+  border-top: 1px solid rgb(220 190 127 / 25%);
+}
+
+.weddingFooterCopyright {
+  color: rgb(255 255 255 / 65%);
+  font-family: var(--font-cormorant), serif;
+  font-size: 14px;
+  text-align: left;
+}
+
+.weddingFooterTopLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--w4-cream);
+  font-family: var(--font-cinzel), serif;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.weddingFooterTopLink span {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  color: var(--w4-maroon);
+  background: var(--w4-gold);
+  border-radius: 50%;
+  font-size: 13px;
+  transition: transform 200ms ease;
+}
+
+.weddingFooterTopLink:hover {
+  color: var(--w4-gold);
+}
+
+.weddingFooterTopLink:hover span {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 560px) {
+  .weddingFooterInner {
+    width: calc(100% - 36px);
+    padding-top: 29px;
+  }
+
+  .weddingFooterNames {
+    font-size: 43px;
+  }
+
+  .weddingFooterMessage {
+    font-size: 16px;
+  }
+
+  .weddingFooterBottom {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 23px;
+    padding: 14px 0;
+  }
+
+  .weddingFooterCopyright {
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weddingFooterTopLink,
+  .weddingFooterTopLink span {
+    transition: none;
+  }
+}
